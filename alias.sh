@@ -1,6 +1,4 @@
-# File with alias and functins for shell
-# source this file in the ~/.bashrc or ~/.zshrc
-
+# Alias Git
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
@@ -24,7 +22,6 @@ alias gcleanall="git checkout -- . && git clean -df"
 # Alias General
 alias zshconfig="vi ~/.zshrc; source ~/.zshrc;"
 alias vi="nvim"
-alias vim="nvim"
 alias pvi="pipenv run nvim"
 alias vimconfig="vi ~/.vimrc"
 alias nvimconfig="vi ~/.config/nvim/init.vim"
@@ -36,7 +33,7 @@ alias c="clear"
 alias pip="pip3"
 alias vimupdate="cd ~/dotfiles/; git pull origin master; .scripts/updatelocal.sh;"
 alias vimpush="cd ~/dotfiles/; .scripts/updategithub.sh; git add .; git commit -m 'update'; git push;"
-alias sourcezsh="source ~/.zshrc"
+alias szsh="source ~/.zshrc"
 
 
 # General variables: to access C-x C-e
