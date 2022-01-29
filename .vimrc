@@ -79,7 +79,6 @@ call plug#begin()
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'morhetz/gruvbox'
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -109,9 +108,8 @@ nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 syntax on
 set t_Co=256
 set cursorline
-let g:airline_theme='gruvbox'
-colorscheme gruvbox
-" autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 " lightline
 let g:lightline= { 'colorscheme': 'onehalfdark' }
 
