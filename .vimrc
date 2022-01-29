@@ -71,14 +71,16 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	Plug 'vim-scripts/AutoComplPop'
+	" Plug 'vim-scripts/AutoComplPop'
 	Plug 'vim-airline/vim-airline'
+	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -91,8 +93,29 @@ call plug#end()
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
-
+map <C-d> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" " COC
+" Language servers for COC
+let g:coc_global_extensions = [
+  \ 'coc-phpls',
+  \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-tsserver',
+  \ 'coc-pyright',
+  \ 'coc-sh'
+  \ ]
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Telescope opts
 nnoremap <leader>f <cmd>Telescope find_files<cr>
@@ -108,16 +131,14 @@ nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-" lightline
-let g:lightline= { 'colorscheme': 'onehalfdark' }
+" colorscheme onehalfdark
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" let g:airline_left_sep = ''
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_sep = ''
-
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
