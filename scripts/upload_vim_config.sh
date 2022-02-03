@@ -1,2 +1,2 @@
-cp ~/.vimrc .vimrc
-cp ~/.config/nvim/init.vim init.vim
+cp ~/.vimrc ~/dotfiles/.vimrc
+cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
