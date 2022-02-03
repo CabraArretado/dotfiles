@@ -13,14 +13,18 @@ if [ $answer0 == "d" ]; then
     elif [ $answer1 == "t" ]; then
 	./scripts/download_tmux_config.sh
 	echo "Tmux configs downloaded and aplied"
+    else
+    	echo "Please, select one of the options"
     fi
 elif [ $answer0 == "u" ]; then
     if [ $answer1 == "v" ]; then
 	./scripts/upload_vim_config.sh
-	echo "Vim configs uploaded to GitHub"
+	echo "Vim configs ready to be commited and pushed to GitHub"
     elif [ $answer1 == "t" ]; then
 	./scripts/upload_tmux_config.sh
-	echo "Tmux configs uploaded to GutHub"
+	echo "Tmux configs ready to be commited and pushed to GutHub"
+    else
+    	echo "Please, select one of the options"
     fi
 fi
 

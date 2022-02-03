@@ -22,6 +22,7 @@ alias gcleanall="git checkout -- . && git clean -df"
 # Alias Tmux
 alias tns="tmux new -s" # new session by name
 alias ta="tmux a -t" # attach by name
+alias tls="tmux ls"
 
 # Alias General
 alias zshconfig="vi ~/.zshrc; source ~/.zshrc;"
@@ -38,8 +39,7 @@ alias aliasconfig="vi ~/dotfiles/alias.sh"
 # Vim related
 alias vi="nvim"
 alias pvi="pipenv run nvim"
-alias vimupdate="cd ~/dotfiles/; git pull origin master; .scripts/updatelocal.sh;"
-alias vimpush="cd ~/dotfiles/; .scripts/updategithub.sh; git add .; git commit -m 'update'; git push;"
+alias confighandler="~/dotfiles/handler.sh"
 
 
 # Python related
