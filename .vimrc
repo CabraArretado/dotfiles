@@ -71,6 +71,7 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
+	Plug 'vim-scripts/AutoComplPop'
 	Plug 'vim-airline/vim-airline'
 	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
@@ -130,6 +131,7 @@ nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 syntax on
 set t_Co=256
 set cursorline
+" colorscheme onehalfdark
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 
@@ -140,3 +142,4 @@ let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
+autocmd vimenter * ++nested colorscheme gruvbox
