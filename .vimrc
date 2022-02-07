@@ -51,16 +51,16 @@ imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-" tab control
+" buffer/tab control
 nmap <Tab><Tab> <esc><C-w><C-w>
-nmap <Tab>t <Esc>:bn<cr>
-nmap <Tab><Right> <Esc>:bn<cr>
+nmap <C-l> <esc><C-w><Right>
+nmap <C-h> <esc><C-w><Left>
+nmap <C-j> <esc><C-w><Down>
+nmap <C-k> <esc><C-w><Up>
 nmap <Tab>l <Esc>:bn<cr>
-nmap <Tab><Left> <Esc>:bp<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
-
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -71,7 +71,6 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	Plug 'vim-scripts/AutoComplPop'
 	Plug 'vim-airline/vim-airline'
 	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
@@ -100,12 +99,12 @@ let NERDTreeShowHidden=1
 " Language servers for COC
 let g:coc_global_extensions = [
   \ 'coc-phpls',
-  \ 'coc-json',
-  \ 'coc-yaml',
   \ 'coc-tsserver',
   \ 'coc-pyright',
   \ 'coc-sh'
   \ ]
+  " \ 'coc-json',
+  " \ 'coc-yaml',
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -131,7 +130,6 @@ nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 syntax on
 set t_Co=256
 set cursorline
-" colorscheme onehalfdark
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 
@@ -142,4 +140,3 @@ let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
-autocmd vimenter * ++nested colorscheme gruvbox
