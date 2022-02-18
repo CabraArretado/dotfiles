@@ -44,23 +44,30 @@ set complete+=kspell
 set shortmess+=c
 set completeopt=menuone,longest,preview
 
-"" Maps +
+"" Maps ++++++++++++++++++
 " general
 map ; :
 imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-" tab control
+vmap <C-c> <cmd><,'>*y<cr>
+
+" move
+nmap J <C-f>
+nmap K <C-b>
+
+" buffer/tab control
 nmap <Tab><Tab> <esc><C-w><C-w>
-nmap <Tab>t <Esc>:bn<cr>
-nmap <Tab><Right> <Esc>:bn<cr>
+nmap <C-l> <esc><C-w><Right>
+nmap <C-h> <esc><C-w><Left>
+nmap <C-j> <esc><C-w><Down>
+nmap <C-k> <esc><C-w><Up>
 nmap <Tab>l <Esc>:bn<cr>
-nmap <Tab><Left> <Esc>:bp<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
-
+vmap <C-c> :<,'><cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -99,12 +106,12 @@ let NERDTreeShowHidden=1
 " Language servers for COC
 let g:coc_global_extensions = [
   \ 'coc-phpls',
-  \ 'coc-json',
-  \ 'coc-yaml',
   \ 'coc-tsserver',
   \ 'coc-pyright',
   \ 'coc-sh'
   \ ]
+  " \ 'coc-json',
+  " \ 'coc-yaml',
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -137,6 +144,4 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_right_sep = ''
