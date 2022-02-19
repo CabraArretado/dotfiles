@@ -34,33 +34,36 @@ set vb t_vb=
 set stl=%f\ %m\ %r\ line\ %l\ of\ %L\ [%p%%],\ column\ %c%=Type:%y
 set laststatus=2
 
-" set shell
-if has('unix')
-  let shell='bash'
-endif
+" " set shell
+" if has('unix')
+"   let shell='bash'
+" endif
 
 " autocomplete
 set complete+=kspell
 set shortmess+=c
 set completeopt=menuone,longest,preview
 
-"" Maps +
+"" Maps ++++++++++++++++++
 " general
 map ; :
 imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-" tab control
+vmap <C-c> <cmd><,'>*y<cr>
+
+" move
+nmap J <C-f>
+nmap K <C-b>
+
+" buffer/tab control
 nmap <Tab><Tab> <esc><C-w><C-w>
-nmap <Tab>t <Esc>:bn<cr>
-nmap <Tab><Right> <Esc>:bn<cr>
 nmap <Tab>l <Esc>:bn<cr>
-nmap <Tab><Left> <Esc>:bp<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
-
+vmap <C-c> :<,'><cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -76,11 +79,11 @@ call plug#begin()
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'christoomey/vim-tmux-navigator'
 	if neovim
+	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
@@ -88,23 +91,32 @@ call plug#begin()
 	endif
 call plug#end()
 
-"" Plug options ++
-" NERDtree options
+" Theme Options ------------------------------------------------------
+syntax on
+set t_Co=256
+set cursorline
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+
+"" Plugins options ---------------------------------------------------
+
+" NERDtree Options ++++++++++
 map <F2> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <C-d> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
-" " COC
+
+" COC +++++++++++++++++++++++
 " Language servers for COC
 let g:coc_global_extensions = [
   \ 'coc-phpls',
-  \ 'coc-json',
-  \ 'coc-yaml',
   \ 'coc-tsserver',
   \ 'coc-pyright',
   \ 'coc-sh'
   \ ]
+  " \ 'coc-json',
+  " \ 'coc-yaml',
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -116,7 +128,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Telescope opts
+
+" Telescope opts ++++++++++++
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
@@ -126,17 +139,15 @@ nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 
-" Onehalf theme options
-syntax on
-set t_Co=256
-set cursorline
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
 
-" Vim Airline options
+" Vim Airline options +++++++
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
-let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+
+
+" Vim Tmux Navegator Options++
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
