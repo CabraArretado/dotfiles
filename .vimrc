@@ -44,13 +44,19 @@ set complete+=kspell
 set shortmess+=c
 set completeopt=menuone,longest,preview
 
-"" Maps +
+"" Maps ++++++++++++++++++
 " general
 map ; :
 imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
+vmap <C-c> <cmd><,'>*y<cr>
+
+" move
+nmap J <C-f>
+nmap K <C-b>
+
 " buffer/tab control
 nmap <Tab><Tab> <esc><C-w><C-w>
 nmap <C-l> <esc><C-w><Right>
@@ -61,6 +67,7 @@ nmap <Tab>l <Esc>:bn<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
+vmap <C-c> :<,'><cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -137,6 +144,4 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_right_sep = ''
