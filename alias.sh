@@ -57,10 +57,16 @@ git_exclude(){
  vi .git/info/exclude
 }
 
-# fzf stuff
 vop()
 {
-    vi $(fzf)
+    OPENFILE=$(fzf)
+    if [[ "$#" -ne 1 ]]; then
+	echo "Nenhum arquivo selectionado LOL"
+    else
+	vi $OPENFILE
+    fi
 }
+
+# fzf stuff
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
