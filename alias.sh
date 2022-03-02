@@ -44,6 +44,7 @@ alias confighandler="~/dotfiles/handler.sh"
 
 # Python related
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
+alias ipy="ipython --TerminalInteractiveShell.editing_mode=vi"
 alias pip="pip3"
 
 # General variables: to access C-x C-e
@@ -60,7 +61,7 @@ git_exclude(){
 vop()
 {
     OPENFILE=$(fzf)
-    if [[ "$#" -ne 1 ]]; then
+    if ! [[ $OPENFILE ]]; then
 	echo "Nenhum arquivo selectionado LOL"
     else
 	vi $OPENFILE

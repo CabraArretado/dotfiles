@@ -51,7 +51,7 @@ imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-vmap <C-y> <cmd><,'>*y<cr>
+vmap <C-y> <cmd>'<,'>*y<cr>
 
 " move
 nmap J <C-f>
@@ -63,7 +63,6 @@ nmap <Tab>l <Esc>:bn<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
-vmap <C-y> :<,'><cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -88,6 +87,7 @@ call plug#begin()
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
+	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	endif
 call plug#end()
 
