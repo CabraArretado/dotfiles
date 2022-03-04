@@ -55,7 +55,12 @@ export VISUAL=/usr/bin/vim
 bindkey -v
 
 git_exclude(){
- vi .git/info/exclude
+    FILE=$(fzf)
+    if ! [[ $FILE ]]; then
+	vi .git/info/exclude
+    else
+	echo $FILE >> .git/info/exclude
+    fi
 }
 
 vop()
