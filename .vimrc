@@ -51,6 +51,7 @@ imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
+
 vmap <C-y> <cmd>'<,'>*y<cr>
 
 " move
@@ -63,6 +64,7 @@ nmap <Tab>l <Esc>:bn<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
+
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -127,6 +129,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 
 
 " Telescope Maps ++++++++++++
