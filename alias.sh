@@ -54,12 +54,15 @@ export VISUAL=/usr/bin/vim
 # Sets Vim keybidings to the terminal
 bindkey -v
 
-git_exclude(){
-    FILE=$(fzf)
-    if ! [[ $FILE ]]; then
-	vi .git/info/exclude
-    else
-	echo $FILE >> .git/info/exclude
+git_exclude()
+{
+    if [ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1 ; then
+	FILE=$(fzf)
+	if ! [[ $FILE ]]; then
+	    vi .git/info/exclude
+	else
+	    echo $FILE >> .git/info/exclude
+	fi
     fi
 }
 
