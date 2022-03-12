@@ -44,6 +44,7 @@ alias confighandler="~/dotfiles/handler.sh"
 
 # Python related
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
+alias ipy="ipython --TerminalInteractiveShell.editing_mode=vi"
 alias pip="pip3"
 
 # General variables: to access C-x C-e
@@ -53,14 +54,28 @@ export VISUAL=/usr/bin/vim
 # Sets Vim keybidings to the terminal
 bindkey -v
 
-git_exclude(){
- vi .git/info/exclude
+git_exclude()
+{
+    if [ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1 ; then
+	FILE=$(fzf)
+	if ! [[ $FILE ]]; then
+	    vi .git/info/exclude
+	else
+	    echo $FILE >> .git/info/exclude
+	fi
+    fi
+}
+
+vop()
+{
+    OPENFILE=$(fzf)
+    if ! [[ $OPENFILE ]]; then
+	echo "Nenhum arquivo selectionado LOL"
+    else
+	vi $OPENFILE
+    fi
 }
 
 # fzf stuff
-vop()
-{
-    vi $(fzf)
-}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

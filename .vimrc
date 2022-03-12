@@ -51,7 +51,8 @@ imap jk <Esc>
 imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-vmap <C-c> <cmd><,'>*y<cr>
+
+vmap <C-y> <cmd>'<,'>*y<cr>
 
 " move
 nmap J <C-f>
@@ -63,7 +64,7 @@ nmap <Tab>l <Esc>:bn<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
-vmap <C-c> :<,'><cr>
+
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -88,6 +89,7 @@ call plug#begin()
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
+	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	endif
 call plug#end()
 
@@ -129,7 +131,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 
-" Telescope opts ++++++++++++
+
+" Telescope Maps ++++++++++++
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
@@ -138,6 +141,7 @@ nnoremap <leader>d <cmd>Telescope file_browser<cr>
 nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>r <cmd>Telescope lsp_references<cr>
+nnoremap <leader>j <cmd>Telescope jumplist<cr>
 
 
 " Vim Airline options +++++++
