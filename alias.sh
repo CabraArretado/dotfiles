@@ -53,6 +53,7 @@ export VISUAL=/usr/bin/vim
 
 # Sets Vim keybidings to the terminal
 bindkey -v
+bindkey jk vi-cmd-mode
 
 git_exclude()
 {
