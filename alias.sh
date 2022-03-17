@@ -52,8 +52,14 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
 # Sets Vim keybidings to the terminal
-bindkey -v
-bindkey jk vi-cmd-mode
+if [[ $ZSH_VERSION ]] ; then
+    bindkey -v
+    bindkey jk vi-cmd-mode
+fi
+if [[ $BASH_VERSION ]] ; then
+    set -o vi
+    bind '"jk":vi-movement-mode'
+fi
 
 git_exclude()
 {
