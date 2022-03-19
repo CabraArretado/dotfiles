@@ -10,7 +10,7 @@ PATH_VIMRC="$HOME/.vimrc"
 PATH_NVIMCONFIG="$HOME/.config/nvim/init.vim"
 PATH_TMUX="$HOME/.tmux.conf"
 
-PATH_OLD="$HOME/.originaldotfiles"
+PATH_OLD="$HOME/.original_dotfiles"
 mkdir $PATH_OLD
 
 mv $PATH_VIMRC $PATH_OLD/.vimrc
