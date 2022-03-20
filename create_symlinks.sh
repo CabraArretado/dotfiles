@@ -18,9 +18,9 @@ if [ $answer == "yes" ]; then
     mv $PATH_TMUX $PATH_OLD/.tmux.conf
 
     DOTFILES_REPO="$HOME/dotfiles"
-    ln -sf $DOTFILES_REPO/.vimrc $PATH_VIMRC
+    ln -sf $DOTFILES_REPO/vimrc $PATH_VIMRC
     ln -sf $DOTFILES_REPO/init.vim $PATH_NVIMCONFIG
-    ln -sf $DOTFILES_REPO/.tmux.conf $PATH_TMUX
+    ln -sf $DOTFILES_REPO/tmux.conf $PATH_TMUX
 
     echo "symlinks created and old saved on ~/.oldfiles"
 fi
