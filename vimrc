@@ -1,5 +1,6 @@
 " THIS IS A SYMLINK FROM ~/dotfiles/
 " IF YOU DESIRE THE OLD .vimrc look into the .original_dotfiles
+" Felipe M. - .vimrc
 
 """ Auto install vim-plug -------------------------------------------
 let neovim = has('nvim')
