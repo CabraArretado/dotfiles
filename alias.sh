@@ -41,6 +41,8 @@ alias vi="nvim"
 alias pvi="pipenv run nvim"
 alias confighandler="~/dotfiles/handler.sh"
 
+# Docker
+alias dc="docker-compose"
 
 # Python related
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
