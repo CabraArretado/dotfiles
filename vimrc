@@ -2,8 +2,9 @@
 " IF YOU DESIRE THE OLD .vimrc look into the .original_dotfiles
 " Felipe M. - .vimrc
 
-""" Auto install vim-plug -------------------------------------------
 let neovim = has('nvim')
+
+""" Auto install vim-plug -------------------------------------------
 let data_dir = neovim ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
       silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -91,6 +92,8 @@ call plug#begin()
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+	    " Plug 'kyazdani42/nvim-web-devicons'
+	    
 	endif
 call plug#end()
 
@@ -116,10 +119,10 @@ let g:coc_global_extensions = [
   \ 'coc-phpls',
   \ 'coc-tsserver',
   \ 'coc-pyright',
-  \ 'coc-sh'
+  \ 'coc-sh',
+  \ 'coc-json',
+  \ 'coc-yaml',
   \ ]
-  " \ 'coc-json',
-  " \ 'coc-yaml',
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -134,6 +137,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 
 " Telescope Maps ++++++++++++
+nnoremap <leader>o <cmd>Telescope oldfiles<cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
@@ -141,7 +145,7 @@ nnoremap <leader>h <cmd>Telescope builtin<cr>
 nnoremap <leader>d <cmd>Telescope file_browser<cr>
 nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
-nnoremap <leader>r <cmd>Telescope lsp_references<cr>
+nnoremap <leader>p <cmd>Telescope pickers<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
 
 
