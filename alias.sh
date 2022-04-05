@@ -1,3 +1,7 @@
+# Dotfiles alias
+DOTPATH="$HOME/dotfiles"
+alias dotfiles="cd $DOTPATH"
+
 # Alias Git
 alias g="git"
 alias ga="git add"
@@ -34,7 +38,18 @@ alias tt="tree -L 2 -a --dirsfirst"
 alias la="ls -a"
 alias c="clear"
 alias szsh="source ~/.zshrc"
-alias aliasconfig="vi ~/dotfiles/alias.sh"
+
+aliasconfig()
+{
+    nvim $HOME/dotfiles/alias.sh
+
+    if [[ $ZSH_VERSION ]] ; then
+	source $HOME/.zshrc
+    fi
+    if [[ $BASH_VERSION ]] ; then
+	source $HOME/.bashrc
+    fi
+}
 
 # Vim related
 alias vi="nvim"
