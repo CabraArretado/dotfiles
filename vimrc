@@ -48,17 +48,19 @@ set completeopt=menuone,longest,preview
 
 "" Maps ++++++++++++++++++
 " general
-map ; :
-imap jk <Esc>
-imap JK <Esc>
+noremap ; :
+inoremap jk <Esc>
+inoremap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
 
 vmap <C-y> <cmd>'<,'>*y<cr>
 
 " move
-nmap J <C-f>
-nmap K <C-b>
+nnoremap J <C-f>
+nnoremap K <C-b>
+vnoremap J <C-f>
+vnoremap K <C-b>
 
 " buffer/tab control
 nmap <Tab><Tab> <esc><C-w><C-w>
@@ -92,8 +94,7 @@ call plug#begin()
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-	    " Plug 'kyazdani42/nvim-web-devicons'
-	    
+	    Plug 'nvim-telescope/telescope-file-browser.nvim'
 	endif
 call plug#end()
 
@@ -142,11 +143,13 @@ nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope builtin<cr>
-nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>r <cmd>Telescope registers<cr>
 nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
-nnoremap <leader>p <cmd>Telescope pickers<cr>
+nnoremap <leader>p <cmd>Telescope builtin<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
+nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>s <cmd>Telescope git_status<cr>
 
 
 " Vim Airline options +++++++

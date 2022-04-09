@@ -6,6 +6,7 @@ alias dotfiles="cd $DOTPATH"
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
+alias gb="git branch"
 alias gc="git commit -v -m"
 alias gca="git add --all && git commit -v -m"
 alias gc!="git commit -v --amend -m"
@@ -21,7 +22,7 @@ alias gnewb="git checkout -b"
 alias gp="git pull"
 alias gpush="git push"
 alias gs="git status"
-alias gcleanall="git checkout -- . && git clean -df"
+alias gcleanall="git reset && git checkout -- . && git clean -df"
 
 # Alias Tmux
 alias tns="tmux new -s" # new session by name
