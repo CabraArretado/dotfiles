@@ -149,6 +149,7 @@ nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>p <cmd>Telescope builtin<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
 nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>s <cmd>Telescope git_status<cr>
 
 
 " Vim Airline options +++++++
