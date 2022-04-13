@@ -79,6 +79,7 @@ if [[ $BASH_VERSION ]] ; then
     bind '"jk":vi-movement-mode'
 fi
 
+# Functions
 git_exclude()
 {
     if [ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1 ; then
