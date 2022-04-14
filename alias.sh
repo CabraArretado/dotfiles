@@ -28,6 +28,7 @@ alias gcleanall="git reset && git checkout -- . && git clean -df"
 alias tns="tmux new -s" # new session by name
 alias ta="tmux a -t" # attach by name
 alias tls="tmux ls"
+alias tmuxkill="tmux kill-session -t"
 
 # Alias General
 alias zshconfig="vi ~/.zshrc; source ~/.zshrc;"
