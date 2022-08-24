@@ -39,19 +39,8 @@ alias t="tree -L 1 -a --dirsfirst"
 alias tt="tree -L 2 -a --dirsfirst"
 alias la="ls -a"
 alias c="clear"
-alias szsh="source ~/.zshrc"
+# alias szsh="source ~/.zshrc"
 
-aliasconfig()
-{
-    nvim $HOME/dotfiles/alias.sh
-
-    if [[ $ZSH_VERSION ]] ; then
-	source $HOME/.zshrc
-    fi
-    if [[ $BASH_VERSION ]] ; then
-	source $HOME/.bashrc
-    fi
-}
 
 # Vim related
 alias vi="nvim"
@@ -63,7 +52,8 @@ alias dc="docker-compose"
 
 # Python related
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
-alias ipy="ipython --TerminalInteractiveShell.editing_mode=vi"
+alias ipy="ipython"
+alias python="python3"
 alias pip="pip3"
 
 # General variables: to access C-x C-e
@@ -80,27 +70,41 @@ if [[ $BASH_VERSION ]] ; then
     bind '"jk":vi-movement-mode'
 fi
 
-# Functions
+## Functions ##
+
+# Opens Git exclude file
 git_exclude()
 {
     if [ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1 ; then
-	FILE=$(fzf)
-	if ! [[ $FILE ]]; then
-	    vi .git/info/exclude
-	else
-	    echo $FILE >> .git/info/exclude
-	fi
+	vi .git/info/exclude
+    else
+    	echo "Not a Git repo, mate (:"
     fi
 }
 
-vop()
+# Identifies and source the .<shell>rc file
+szsh()
 {
-    OPENFILE=$(fzf)
-    if ! [[ $OPENFILE ]]; then
-	echo "Nenhum arquivo selectionado LOL"
-    else
-	vi $OPENFILE
+    if [[ $ZSH_VERSION ]] ; then
+	source $HOME/.zshrc
     fi
+    if [[ $BASH_VERSION ]] ; then
+	source $HOME/.bashrc
+    fi
+}
+
+# Opens alias.sh in the editor
+aliasconfig()
+{
+    nvim $HOME/dotfiles/alias.sh
+    szsh
+}
+
+# Log into Bash in a dock container
+# Argument: docker conatiner identifier
+docker_terminal()
+{
+    docker exec -it $1 bash
 }
 
 # fzf stuff

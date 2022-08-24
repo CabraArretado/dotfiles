@@ -17,6 +17,7 @@ set mouse=a " allows mouse to be used
 set autoindent " new lines inherit the identetions of previous line
 set copyindent
 set hlsearch
+set autoread
 
 set cursorline
 set hidden
@@ -88,7 +89,6 @@ call plug#begin()
 	Plug 'junegunn/fzf.vim'
 	Plug 'christoomey/vim-tmux-navigator'
 	if neovim
-	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
@@ -114,6 +114,21 @@ map <leader>n :NERDTreeToggle<CR>
 map <C-d> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
+" Telescope Maps ++++++++++++
+nnoremap <leader>t <cmd>Telescope treesitter<cr>
+nnoremap <leader>o <cmd>Telescope oldfiles<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope builtin<cr>
+nnoremap <leader>r <cmd>Telescope registers<cr>
+nnoremap <leader>l <cmd>Telescope live_grep<cr>
+nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>j <cmd>Telescope jumplist<cr>
+nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>s <cmd>Telescope git_status<cr>
+" to use with lsp server
+" nnoremap gr <cmd>Telescope lsp_references<cr>
 
 " COC +++++++++++++++++++++++
 " Language servers for COC
@@ -144,21 +159,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OrganizeImport` command for organize imports of the current buffer.
 command! -nargs=0 OrganizeImport   :call     CocActionAsync('runCommand', 'editor.action.organizeImport') gr <Plug>(coc-references)
-
-
-" Telescope Maps ++++++++++++
-nnoremap <leader>o <cmd>Telescope oldfiles<cr>
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>g <cmd>Telescope live_grep<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>h <cmd>Telescope builtin<cr>
-nnoremap <leader>r <cmd>Telescope registers<cr>
-nnoremap <leader>l <cmd>Telescope live_grep<cr>
-nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
-nnoremap <leader>p <cmd>Telescope builtin<cr>
-nnoremap <leader>j <cmd>Telescope jumplist<cr>
-nnoremap <leader>d <cmd>Telescope file_browser<cr>
-nnoremap <leader>s <cmd>Telescope git_status<cr>
 
 
 " Vim Airline options +++++++
