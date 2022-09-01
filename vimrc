@@ -80,7 +80,6 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	" Plug 'vim-airline/vim-airline'
 	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
@@ -163,14 +162,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OrganizeImport   :call     CocActionAsync('runCommand', 'editor.action.organizeImport') gr <Plug>(coc-references)
 
 
-" Vim Airline options +++++++
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-
-
 " Vim Tmux Navegator Options++
 " Disable tmux navigator when zooming the Vim pane
-" let g:tmux_navigator_disable_when_zoomed = 1
+let g:tmux_navigator_disable_when_zoomed = 1
 
