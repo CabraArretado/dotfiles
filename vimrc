@@ -80,7 +80,7 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	Plug 'vim-airline/vim-airline'
+	" Plug 'vim-airline/vim-airline'
 	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
@@ -96,6 +96,8 @@ call plug#begin()
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	    Plug 'nvim-telescope/telescope-file-browser.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons'
+	    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+	    Plug 'nvim-lualine/lualine.nvim'
 	endif
 call plug#end()
 
@@ -162,13 +164,13 @@ command! -nargs=0 OrganizeImport   :call     CocActionAsync('runCommand', 'edito
 
 
 " Vim Airline options +++++++
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
 
 
 " Vim Tmux Navegator Options++
 " Disable tmux navigator when zooming the Vim pane
-let g:tmux_navigator_disable_when_zoomed = 1
+" let g:tmux_navigator_disable_when_zoomed = 1
 
