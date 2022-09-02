@@ -79,7 +79,6 @@ noremap <Right> <Nop>
 
 """ Plugins ---------------------------------------------------------
 call plug#begin()
-	Plug 'preservim/nerdtree'
 	Plug 'morhetz/gruvbox'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
@@ -94,9 +93,10 @@ call plug#begin()
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	    Plug 'nvim-telescope/telescope-file-browser.nvim'
-	    Plug 'kyazdani42/nvim-web-devicons'
 	    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	    Plug 'nvim-lualine/lualine.nvim'
+	    Plug 'kyazdani42/nvim-web-devicons'
+	    Plug 'kyazdani42/nvim-tree.lua'
 	endif
 call plug#end()
 
@@ -110,9 +110,8 @@ let g:airline_theme='gruvbox'
 "" Plugins options ---------------------------------------------------
 
 " NERDtree Options ++++++++++
-map <F2> :NERDTreeToggle<CR>
-map <leader>n :NERDTreeToggle<CR>
-map <C-d> :NERDTreeToggle<CR>
+map <F2> :NvimTreeToggle <CR>
+map <leader> :NvimTreeToggle <CR>
 let NERDTreeShowHidden=1
 
 " Telescope Maps ++++++++++++
