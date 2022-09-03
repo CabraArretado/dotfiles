@@ -10,7 +10,7 @@ require("nvim-tree").setup({
     },
   },
   renderer = {
-  	add_trailing = true,
+    add_trailing = true,
     group_empty = true,
   },
   filters = {
