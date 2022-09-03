@@ -80,6 +80,7 @@ noremap <Right> <Nop>
 """ Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'morhetz/gruvbox'
+	Plug 'joshdick/onedark.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
@@ -97,6 +98,7 @@ call plug#begin()
 	    Plug 'nvim-lualine/lualine.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons'
 	    Plug 'kyazdani42/nvim-tree.lua'
+	    Plug 'lukas-reineke/indent-blankline.nvim'
 	endif
 call plug#end()
 
