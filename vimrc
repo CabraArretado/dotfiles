@@ -107,6 +107,7 @@ call plug#begin()
 	endif
 call plug#end()
 
+
 "#######################
 "######### THEME #######
 "#######################
@@ -120,6 +121,7 @@ colorscheme gruvbox
 map <F2> :NvimTreeToggle <CR>
 map <leader>d :NvimTreeToggle <CR>
 map <leader>n :NvimTreeToggle <CR>
+
 
 " Telescope Remaps
 nnoremap <leader>t <cmd>Telescope treesitter<cr>
