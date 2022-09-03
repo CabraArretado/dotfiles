@@ -37,11 +37,6 @@ set vb t_vb=
 set stl=%f\ %m\ %r\ line\ %l\ of\ %L\ [%p%%],\ column\ %c%=Type:%y
 set laststatus=2
 
-" " set shell
-" if has('unix')
-"   let shell='bash'
-" endif
-
 " autocomplete
 set complete+=kspell
 set shortmess+=c
@@ -79,8 +74,8 @@ noremap <Right> <Nop>
 
 """ Plugins ---------------------------------------------------------
 call plug#begin()
-	Plug 'morhetz/gruvbox'
-	Plug 'joshdick/onedark.vim'
+	Plug 'morhetz/gruvbox' " theme
+	Plug 'joshdick/onedark.vim' " theme
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
@@ -93,7 +88,6 @@ call plug#begin()
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-	    Plug 'nvim-telescope/telescope-file-browser.nvim'
 	    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	    Plug 'nvim-lualine/lualine.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons'
@@ -106,7 +100,8 @@ call plug#end()
 syntax on
 set t_Co=256
 set cursorline
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme onedark
 
 "" Plugins options ---------------------------------------------------
 
@@ -125,7 +120,6 @@ nnoremap <leader>r <cmd>Telescope registers<cr>
 nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
-nnoremap <leader>d <cmd>Telescope file_browser<cr>
 nnoremap <leader>s <cmd>Telescope git_status<cr>
 " to use with lsp server
 " nnoremap gr <cmd>Telescope lsp_references<cr>
@@ -150,15 +144,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OrganizeImport` command for organize imports of the current buffer.
-command! -nargs=0 OrganizeImport   :call     CocActionAsync('runCommand', 'editor.action.organizeImport') gr <Plug>(coc-references)
 
 
 " Vim Tmux Navegator Options++
