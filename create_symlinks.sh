@@ -25,8 +25,7 @@ if [ $answer == "yes" ]; then
 
     # NeoVim
     ln -sf $DOTFILES_REPO/init.vim $PATH_NVIMCONFIG
-    mkdir $PATH_NVIM/lua
-    ln -sf $DOTFILES_REPO/lua/* $PATH_NVIM/lua/
+    sudo ln -sf $DOTFILES_REPO/lua $PATH_NVIM/lua
 
     echo "symlinks created and old saved on ~/.oldfiles"
 fi
