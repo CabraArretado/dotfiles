@@ -105,14 +105,12 @@ syntax on
 set t_Co=256
 set cursorline
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
 
 "" Plugins options ---------------------------------------------------
 
 " NERDtree Options ++++++++++
 map <F2> :NvimTreeToggle <CR>
 map <leader> :NvimTreeToggle <CR>
-let NERDTreeShowHidden=1
 
 " Telescope Maps ++++++++++++
 nnoremap <leader>t <cmd>Telescope treesitter<cr>
