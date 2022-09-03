@@ -11,7 +11,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 
-""" Geral -----------------------------------------------------------
+"######################
+"### MAIN CONFIG ######
+"######################
 set number " show line number
 set mouse=a " allows mouse to be used
 set autoindent " new lines inherit the identetions of previous line
@@ -42,14 +44,21 @@ set complete+=kspell
 set shortmess+=c
 set completeopt=menuone,longest,preview
 
-"" Maps ++++++++++++++++++
+syntax on
+set t_Co=256
+set cursorline
+
+
+"######################
+"####### REMAPS #######
+"######################
+
 " general
 noremap ; :
 inoremap jk <Esc>
 inoremap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-
 vmap <C-y> <cmd>'<,'>*y<cr>
 
 " move
@@ -65,14 +74,16 @@ nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
 
-
 " disables arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-""" Plugins ---------------------------------------------------------
+
+"######################
+"####### PLUGINS ######
+"######################
 call plug#begin()
 	Plug 'morhetz/gruvbox' " theme
 	Plug 'joshdick/onedark.vim' " theme
@@ -86,7 +97,7 @@ call plug#begin()
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
-	    Plug 'nvim-telescope/telescope.nvim'
+	    Plug 'nvim-tjjelescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	    Plug 'nvim-lualine/lualine.nvim'
@@ -96,20 +107,21 @@ call plug#begin()
 	endif
 call plug#end()
 
-" Theme Options ------------------------------------------------------
-syntax on
-set t_Co=256
-set cursorline
-" colorscheme gruvbox
-colorscheme onedark
+"#######################
+"######### THEME #######
+"#######################
+colorscheme gruvbox
 
-"" Plugins options ---------------------------------------------------
+"#######################
+"### PLUGINS REMAPS ####
+"#######################
 
-" NERDtree Options ++++++++++
+" Nvim-Tree Remaps
 map <F2> :NvimTreeToggle <CR>
-map <leader> :NvimTreeToggle <CR>
+map <leader>d :NvimTreeToggle <CR>
+map <leader>n :NvimTreeToggle <CR>
 
-" Telescope Maps ++++++++++++
+" Telescope Remaps
 nnoremap <leader>t <cmd>Telescope treesitter<cr>
 nnoremap <leader>o <cmd>Telescope oldfiles<cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
@@ -117,33 +129,11 @@ nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope builtin<cr>
 nnoremap <leader>r <cmd>Telescope registers<cr>
-nnoremap <leader>l <cmd>Telescope live_grep<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
-nnoremap <leader>s <cmd>Telescope git_status<cr>
-" to use with lsp server
-" nnoremap gr <cmd>Telescope lsp_references<cr>
-
-" COC +++++++++++++++++++++++
-" Language servers for COC
-let g:coc_global_extensions = [
-  \ 'coc-phpls',
-  \ 'coc-tsserver',
-  \ 'coc-pyright',
-  \ 'coc-sh',
-  \ 'coc-json',
-  \ 'coc-yaml',
-  \ ]
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <leader>sh <cmd>Telescope search_history<cr>
+nnoremap gr <cmd>Telescope lsp_references<cr>
 
 
 " Vim Tmux Navegator Options++
