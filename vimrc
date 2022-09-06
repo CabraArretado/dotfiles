@@ -97,7 +97,7 @@ call plug#begin()
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	    Plug 'nvim-lua/plenary.nvim'
-	    Plug 'nvim-tjjelescope/telescope.nvim'
+	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	    Plug 'nvim-lualine/lualine.nvim'
