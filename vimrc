@@ -111,7 +111,7 @@ call plug#end()
 "#######################
 "######### THEME #######
 "#######################
-colorscheme gruvbox
+colorscheme onedark
 
 "#######################
 "### PLUGINS REMAPS ####
