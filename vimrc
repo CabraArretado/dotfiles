@@ -134,7 +134,13 @@ nnoremap <leader>r <cmd>Telescope registers<cr>
 nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>j <cmd>Telescope jumplist<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <leader>gc <cmd>Telescope git_commits<cr>
+nnoremap <leader>gbc <cmd>Telescope git_bcommits<cr>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 nnoremap <leader>sh <cmd>Telescope search_history<cr>
+nnoremap <leader>co <cmd>Telescope commands<cr>
+nnoremap <leader>k <cmd>Telescope keymaps<cr>
+nnoremap <leader>man <cmd>Telescope man_pages<cr>
 nnoremap gr <cmd>Telescope lsp_references<cr>
 
 
