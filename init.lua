@@ -26,10 +26,10 @@ opt.shiftwidth = 4
 g.mapleader = ','
 g.maplocalleader = '\\'
 
--- Like auto-reload, but better
-cmd([[autocmd FocusGained * checktime]])
 -- Theme
-cmd([[colorscheme onedark]])
+local theme = 'gruvbox'
+cmd(string.format([[colorscheme %s]], theme))
+
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 
