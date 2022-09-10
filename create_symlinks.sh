@@ -8,7 +8,7 @@ if [ $answer == "yes" ]; then
 
     PATH_VIMRC="$HOME/.vimrc"
     PATH_NVIM="$HOME/.config/nvim/"
-    PATH_NVIMCONFIG="$HOME/.config/nvim/init.vim"
+    PATH_NVIMCONFIG="$HOME/.config/nvim/init.lua"
     PATH_TMUX="$HOME/.tmux.conf"
 
     PATH_OLD="$HOME/.original_dotfiles"
@@ -24,7 +24,7 @@ if [ $answer == "yes" ]; then
     ln -sf $DOTFILES_REPO/tmux.conf $PATH_TMUX
 
     # NeoVim
-    ln -sf $DOTFILES_REPO/init.vim $PATH_NVIMCONFIG
+    ln -sf $DOTFILES_REPO/init.lua $PATH_NVIMCONFIG
     sudo ln -sf $DOTFILES_REPO/lua $PATH_NVIM/lua
 
     echo "symlinks created and old saved on ~/.oldfiles"

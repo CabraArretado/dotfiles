@@ -3,6 +3,12 @@ local g = vim.g      -- to access global variables
 local opt = vim.opt  -- to set options
 
 require('plugins')
+require('telescope-setup')
+require('treesitter-setup')
+require('bufferline-setup')
+require('lualine-setup')
+require('nerdtree-setup')
+require('lsp-setup')
 
 opt.number = true
 opt.cursorline = true
@@ -27,11 +33,11 @@ cmd([[colorscheme onedark]])
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 
--- Disable arrow keys
-vim.keymap.del({'n', 'v'}, '<Up>')
-vim.keymap.del({'n', 'v'}, '<Down>')
-vim.keymap.del({'n', 'v'}, '<Left>')
-vim.keymap.del({'n', 'v'}, '<Right>')
+-- -- Disable arrow keys
+-- vim.keymap.del({'n', 'v'}, '<Up>')
+-- vim.keymap.del({'n', 'v'}, '<Down>')
+-- vim.keymap.del({'n', 'v'}, '<Left>')
+-- vim.keymap.del({'n', 'v'}, '<Right>')
 
 -- Helper function for mapping
 local function map(modes, lhs, rhs, opts)
@@ -48,8 +54,8 @@ local function map(modes, lhs, rhs, opts)
 end
 --General 
 map({'n', 'v'}, ';', ':')
-map('n', 'jk', '<Esc>')
-map('n', 'JK', '<Esc>')
+map('i', 'jk', '<Esc>')
+map('i', 'JK', '<Esc>')
 map('n', '<C-s>', '<cmd>w')
 
 -- Moving
@@ -65,7 +71,7 @@ map('n', '<Tab>d', '<Esc><cmd>bdelete<cr>')
 map('n', '<Tab>v', '<Esc><cmd>vert<space>sbNext<cr>')
 --
 -- NvimTree
-map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeToggle')
+map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeToggle<cr>')
 -- Telescope
 map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
 map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
