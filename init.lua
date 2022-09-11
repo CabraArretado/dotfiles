@@ -9,6 +9,7 @@ require('bufferline-setup')
 require('lualine-setup')
 require('nerdtree-setup')
 require('lsp-setup')
+require('cmp-setup')
 
 opt.number = true
 opt.cursorline = true
@@ -72,6 +73,7 @@ map('n', '<Tab>v', '<Esc><cmd>vert<space>sbNext<cr>')
 --
 -- NvimTree
 map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeToggle<cr>')
+map({'n', 'v'}, '<leader>d', '<cmd>NvimTreeToggle<cr>')
 -- Telescope
 map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
 map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')

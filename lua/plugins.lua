@@ -1,4 +1,5 @@
 local ensure_packer = function()
+    -- Ensure that Packer is installed on Neovim start
 	local fn = vim.fn
 	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 	if fn.empty(fn.glob(install_path)) > 0 then
@@ -11,8 +12,13 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
+--------------------------------
+--- Plugins list to install ----
+--------------------------------
+return require('packer').startup(
+    function(use)
+	-- Vim plugins
+	use { 'wbthomason/packer.nvim' }
 	use { 'morhetz/gruvbox' }
 	use { 'joshdick/onedark.vim' }
 	use { 'airblade/vim-gitgutter' }
@@ -21,6 +27,7 @@ return require('packer').startup(function(use)
 	use { 'junegunn/fzf' }
 	use { 'junegunn/fzf.vim' }
 	use { 'christoomey/vim-tmux-navigator' }
+	-- Neovim exclusive plugins
 	use { 'neovim/nvim-lspconfig' }
 	use { 'nvim-treesitter/nvim-treesitter' }
 	use { 'nvim-lua/plenary.nvim' }
@@ -31,12 +38,15 @@ return require('packer').startup(function(use)
 	use { 'kyazdani42/nvim-web-devicons' }
 	use { 'kyazdani42/nvim-tree.lua' }
 	use { 'lukas-reineke/indent-blankline.nvim' }
-	-- My use {ins here
-	-- use 'foo1/bar1.nvim'
-	-- use 'foo2/bar2.nvim'
-
+	use { 'hrsh7th/nvim-cmp' }
+	use { 'hrsh7th/cmp-nvim-lsp' }
+	use { 'hrsh7th/cmp-buffer' }
+	use { 'hrsh7th/cmp-path' }
+	use { 'hrsh7th/cmp-cmdline' }
+----------------------------------
+----------------------------------
+----------------------------------
 	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all use {ins
 	if packer_bootstrap then
 		require('packer').sync()
 	end
