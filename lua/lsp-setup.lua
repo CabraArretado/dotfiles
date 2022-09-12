@@ -1,3 +1,11 @@
+local lspconfig = require('lspconfig')
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lsp_flags = {
+	-- This is the default in Nvim 0.7+
+	debounce_text_changes = 150,
+}
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -31,12 +39,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local lsp_flags = {
-	-- This is the default in Nvim 0.7+
-	debounce_text_changes = 150,
-}
-require('lspconfig').sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
+	capabilities = capabilities,
 	on_attach = on_attach,
+	flags = lsp_flags,
 	settings = {
 		Lua = {
 			runtime = {
@@ -67,7 +73,15 @@ require('lspconfig').sumneko_lua.setup {
 		},
 	},
 }
-require('lspconfig')['pyright'].setup {
-	on_attach = on_attach,
-	flags = lsp_flags,
-}
+-- List all servers here --
+-- tables of string with the server's names
+local servers = {'pyright'}
+
+
+for _, lsp in pairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities
+  }
+  end

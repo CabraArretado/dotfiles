@@ -21,16 +21,9 @@ cmp.setup({
 		{ name = 'buffer' },
 		{ name = 'path' },
 	}),
-	-- formating = {
-	--   format = lspkind.cmp_format {
-	--     with_text = true,
-	--     menu = {
-	--       buffer = "[buff]",
-	--       nvim_lsp = "[LSP]",
-	--       path = "[path]",
-	--       }
-	--       }
-	-- }
+	completion = {
+	    keyword_length = 3,
+	}
 })
 
 -- `/` cmdline setup.
@@ -50,9 +43,3 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig')['pyright'].setup {
-	capabilities = capabilities
-}
