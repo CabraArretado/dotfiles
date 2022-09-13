@@ -1,4 +1,4 @@
-local cmd = vim.cmd -- to execute string as vim command
+local cmd = vim.cmd --- to execute string as vim command
 local g = vim.g      -- to access global variables
 local opt = vim.opt  -- to set options
 
@@ -23,7 +23,11 @@ opt.clipboard = 'unnamed'
 opt.mouse = 'a'
 opt.laststatus = 3
 opt.shiftwidth = 4
-
+opt.list = true
+-- opt.listchars:append "eol:↵" -- other options( ↩ , ↴ , ↵ )
+opt.listchars:append "trail:·"
+opt.breakindent = true
+opt.linebreak = true
 g.mapleader = ','
 g.maplocalleader = '\\'
 
@@ -33,12 +37,6 @@ cmd(string.format([[colorscheme %s]], theme))
 
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
-
--- -- Disable arrow keys
--- vim.keymap.del({'n', 'v'}, '<Up>')
--- vim.keymap.del({'n', 'v'}, '<Down>')
--- vim.keymap.del({'n', 'v'}, '<Left>')
--- vim.keymap.del({'n', 'v'}, '<Right>')
 
 -- Helper function for mapping
 local function map(modes, lhs, rhs, opts)
@@ -82,7 +80,7 @@ map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>h', '<cmd>Telescope builtin<cr>')
 map('n', '<leader>r', '<cmd>Telescope registers<cr>')
-map('n', '<leader>i', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
+map('n', '<leader>bg', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 map('n', '<leader>j', '<cmd>Telescope jumplist<cr>')
 map('n', '<leader>gs', '<cmd>Telescope git_status<cr>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<cr>')
@@ -90,5 +88,4 @@ map('n', '<leader>gbc', '<cmd>Telescope git_bcommits<cr>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
 map('n', '<leader>k', '<cmd>Telescope keymaps<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
-
 
