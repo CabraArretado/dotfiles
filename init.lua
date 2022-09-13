@@ -32,7 +32,7 @@ g.mapleader = ','
 g.maplocalleader = '\\'
 
 -- Theme
-local theme = 'gruvbox'
+local theme = 'onedark'
 cmd(string.format([[colorscheme %s]], theme))
 
 -- tmux nav
