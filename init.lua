@@ -10,6 +10,7 @@ require('lualine-setup')
 require('nerdtree-setup')
 require('lsp-setup')
 require('cmp-setup')
+require('term-setup')
 
 opt.number = true
 opt.cursorline = true
@@ -89,3 +90,5 @@ map('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
 map('n', '<leader>k', '<cmd>Telescope keymaps<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 
+-- Terminal
+map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')

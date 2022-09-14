@@ -75,8 +75,7 @@ end
 -- }
 -- List all servers here --
 -- tables of string with the server's names
-local servers = {'pyright'}
-
+local servers = {'pyright', 'tsserver'}
 
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {

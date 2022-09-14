@@ -43,6 +43,7 @@ return require('packer').startup(
 	use { 'hrsh7th/cmp-buffer' }
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
+	use { 'akinsho/toggleterm.nvim' }
 ----------------------------------
 ----------------------------------
 ----------------------------------
