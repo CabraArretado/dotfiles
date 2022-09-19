@@ -90,6 +90,8 @@ map('n', '<leader>gc', '<cmd>Telescope git_commits<cr>')
 map('n', '<leader>gbc', '<cmd>Telescope git_bcommits<cr>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
 map('n', '<leader>k', '<cmd>Telescope keymaps<cr>')
+map('n', '<leader>li', '<cmd>Telescope lsp_incoming_calls<cr>')
+map('n', '<leader>lo', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 
 -- Terminal
