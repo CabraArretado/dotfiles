@@ -72,7 +72,7 @@ map('n', '<Tab>d', '<Esc><cmd>bdelete<cr>')
 map('n', '<Tab>v', '<Esc><cmd>vert<space>sbNext<cr>')
 --
 -- NvimTree
-map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeToggle<cr>')
+map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeFindFileToggle<cr>')
 map({'n', 'v'}, '<leader>d', '<cmd>NvimTreeToggle<cr>')
 -- Telescope
 map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
