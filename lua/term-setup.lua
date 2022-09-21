@@ -3,6 +3,9 @@ require("toggleterm").setup{
     terminal_mappings = true,
     insert_mappings = true,
     direction = 'float',
+    float_opts = {
+    border = 'double'
+    },
     size = function(term)
     if term.direction == "horizontal" then
       return 15

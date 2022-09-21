@@ -96,3 +96,4 @@ map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 
 -- Terminal
 map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
+map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
