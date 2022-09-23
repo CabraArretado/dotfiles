@@ -5,7 +5,9 @@ require("nvim-tree").setup({
     mappings = {
       list = {
         { key = "?", action = "toggle_help" },
-        { key = "<C-k>", action = "" },
+	{ key = "<C-k>", action = "" },
+        { key = "<C-v>", action = "" },
+        { key = "v", action = "vsplit" },
       },
     },
   },

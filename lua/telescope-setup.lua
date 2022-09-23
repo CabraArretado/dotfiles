@@ -37,6 +37,7 @@ require('telescope').setup {
         ["q"] = require("telescope.actions").close,
         ["J"] = "preview_scrolling_down",
         ["K"] = "preview_scrolling_up",
+        ["v"] = "select_vertical",
       },
     },
   },
