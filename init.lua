@@ -93,6 +93,7 @@ map('n', '<leader>k', '<cmd>Telescope keymaps<cr>')
 map('n', '<leader>li', '<cmd>Telescope lsp_incoming_calls<cr>')
 map('n', '<leader>lo', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
+map('n', 'gdd', '<cmd>Telescope lsp_definitions<cr>')
 
 -- Terminal
 map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')

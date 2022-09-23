@@ -44,5 +44,8 @@ require('telescope').setup {
     oldfiles = {
       only_cwd = true
     },
+    lsp_definitions = {
+      jump_type = 'never'
+    },
   }
 }
