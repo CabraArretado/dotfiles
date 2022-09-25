@@ -57,12 +57,14 @@ map({'n', 'v'}, 'K', '<C-b>')
 map('n', '<Tab><Tab>', '<esc><C-w><C-w>')
 map('n', '<Tab>l', '<Esc><cmd>bn<cr>')
 map('n', '<Tab>h', '<Esc><cmd>bp<cr>')
-map('n', '<Tab>d', '<Esc><cmd>bdelete<cr>')
+map('n', '<Tab>d', '<Esc><cmd>bnext<bar>bd#<cr>')
+map('n', '<Tab>dd', '<Esc><cmd>bdelete<cr>')
 map('n', '<Tab>v', '<Esc><cmd>vert<space>sbNext<cr>')
---
+
 -- NvimTree
 map({'n', 'v'}, '<leader>n', '<cmd>NvimTreeFindFileToggle<cr>')
 map({'n', 'v'}, '<leader>d', '<cmd>NvimTreeToggle<cr>')
+
 -- Telescope
 map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
 map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
@@ -78,11 +80,13 @@ map('n', '<leader>gs', '<cmd>Telescope git_status<cr>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<cr>')
 map('n', '<leader>gbc', '<cmd>Telescope git_bcommits<cr>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
-map('n', '<leader>k', '<cmd>Telescope keymaps<cr>')
-map('n', '<leader>li', '<cmd>Telescope lsp_incoming_calls<cr>')
-map('n', '<leader>lo', '<cmd>Telescope lsp_outgoing_calls<cr>')
+map('n', '<leader>km', '<cmd>Telescope keymaps<cr>')
+
+map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>')
+map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
-map('n', 'gdd', '<cmd>Telescope lsp_definitions<cr>')
+map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
+map('n', 'gq', '<cmd>Telescope quickfix<cr>')
 
 -- Terminal
 map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
