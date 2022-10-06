@@ -43,6 +43,8 @@ local map = require('helpers').map
 
 --General 
 map({'n', 'v'}, ';', ':')
+map({'n', 'v'}, "'", ';') -- Repeat last motion foward
+map({'n', 'v'}, '"', ',') -- Repeat last motion backward
 map('i', 'jk', '<Esc>')
 map('i', 'JK', '<Esc>')
 map('n', '<C-s>', '<cmd>w<cr>')
