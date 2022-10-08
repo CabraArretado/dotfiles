@@ -11,6 +11,8 @@ require('nerdtree-setup')
 require('lsp-setup')
 require('cmp-setup')
 require('term-setup')
+require('diversos-setup')
+
 
 opt.number = true
 opt.cursorline = true
@@ -94,3 +96,5 @@ map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>')
 -- Terminal
 map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
 map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
+
+map({'n','v'}, 's', '<cmd>HopChar2<cr>')
