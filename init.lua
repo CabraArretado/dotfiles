@@ -49,6 +49,7 @@ map('i', 'jk', '<Esc>')
 map('i', 'JK', '<Esc>')
 map('n', '<C-s>', '<cmd>w<cr>')
 map('n', '<C-c>', '<cmd>checktime<cr>')
+map({'n', 'v'}, 'q', '%')
 
 -- Moving
 -- TODO: test the '{' and '}'
