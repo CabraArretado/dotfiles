@@ -97,5 +97,5 @@ map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
 map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
 
 -- Hop
-map({'n','v'}, '<leader>hl', '<cmd>HopLineStart<cr>')
-map({'n','v'}, '<leader>hw', '<cmd>HopChar2<cr>')
+map({'n','v'}, 's', '<cmd>HopLineStart<cr>')
+map({'n','v'}, 'S', '<cmd>HopChar2<cr>')
