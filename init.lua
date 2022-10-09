@@ -11,6 +11,8 @@ require('nerdtree-setup')
 require('lsp-setup')
 require('cmp-setup')
 require('term-setup')
+require('diversos-setup')
+
 
 opt.number = true
 opt.cursorline = true
@@ -74,7 +76,6 @@ map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 map('n', '<leader>lg', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
-map('n', '<leader>h', '<cmd>Telescope builtin<cr>')
 map('n', '<leader>r', '<cmd>Telescope registers<cr>')
 map('n', '<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 map('n', '<leader>j', '<cmd>Telescope jumplist<cr>')
@@ -88,9 +89,14 @@ map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>')
 map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
+-- map('n', 'gd', function() return require('telescope.builtin').lsp_definitions(require('telescope.themes').get_cursor()) end)
 map('n', 'gq', '<cmd>Telescope quickfix<cr>')
 map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>')
 
 -- Terminal
 map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
 map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
+
+-- Hop
+map({'n','v'}, 's', '<cmd>HopLineStart<cr>')
+map({'n','v'}, 'S', '<cmd>HopChar2<cr>')
