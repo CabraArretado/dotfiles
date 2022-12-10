@@ -88,15 +88,15 @@ map('n', '<leader>km', '<cmd>Telescope keymaps<cr>')
 map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>')
 map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
-map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
--- map('n', 'gd', function() return require('telescope.builtin').lsp_definitions(require('telescope.themes').get_cursor()) end)
+-- map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
+map('n', 'gd', function() return require('telescope.builtin').lsp_definitions(require('telescope.themes').get_cursor()) end)
 map('n', 'gq', '<cmd>Telescope quickfix<cr>')
 map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>')
 
 -- Terminal
-map({'n', 't'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
+map({'n', 't', 'v'}, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
 map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
 
 -- Hop
-map({'n','v'}, 's', '<cmd>HopLineStart<cr>')
-map({'n','v'}, 'S', '<cmd>HopChar2<cr>')
+map({'n','v'}, 'S', '<cmd>HopLineStart<cr>')
+map({'n','v'}, 's', '<cmd>HopChar2<cr>')
