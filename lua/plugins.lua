@@ -46,6 +46,7 @@ return require('packer').startup(
 	use { 'L3MON4D3/LuaSnip' }
 	use { 'akinsho/toggleterm.nvim' }
 	use { 'phaazon/hop.nvim' }
+	use { "williamboman/mason.nvim" }
 ----------------------------------
 ----------------------------------
 ----------------------------------
