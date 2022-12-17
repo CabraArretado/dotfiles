@@ -1,4 +1,10 @@
-require('lualine').setup {
+local present, lualine = pcall(require, "lualine")
+
+if not present then
+  return
+end
+
+lualine.setup {
   options = {
     icons_enabled = true,
     component_separators = { left = '', right = '' },

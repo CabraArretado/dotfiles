@@ -1,6 +1,10 @@
--- local actions = require("telescope.actions")
+local present, telescope = pcall(require, "telescope")
 
-require('telescope').setup {
+if not present then
+  return
+end
+
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -43,10 +47,42 @@ require('telescope').setup {
   },
   pickers = {
     oldfiles = {
-      only_cwd = true
+      only_cwd = true,
+      initial_mode = 'normal',
     },
     lsp_definitions = {
-      jump_type = 'never'
+      jump_type = 'never',
+      initial_mode = 'normal',
+    },
+    jumplist = {
+      initial_mode = 'normal',
+    },
+    registers = {
+      initial_mode = 'normal',
+    },
+    git_status = {
+      initial_mode = 'normal',
+    },
+    git_commits = {
+      initial_mode = 'normal',
+    },
+    git_bcommits = {
+      initial_mode = 'normal',
+    },
+    git_branches = {
+      initial_mode = 'normal',
+    },
+    lsp_references = {
+      initial_mode = 'normal',
+    },
+    lsp_incoming_calls = {
+      initial_mode = 'normal',
+    },
+    lsp_dynamic_workspace_symbols = {
+      initial_mode = 'normal',
+    },
+    git_stash = {
+      initial_mode = 'normal',
     },
   }
 }

@@ -1,4 +1,10 @@
-require("nvim-tree").setup({
+local present, nvimtree = pcall(require, "nvim-tree")
+
+if not present then
+  return
+end
+
+nvimtree.setup({
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,

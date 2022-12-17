@@ -1,4 +1,9 @@
-local cmp = require 'cmp'
+local present, cmp = pcall(require, 'cmp')
+
+if not present then
+  return
+end
+
 local luasnip = require 'luasnip'
 
 local has_words_before = function()

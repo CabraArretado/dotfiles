@@ -1,4 +1,10 @@
-require("toggleterm").setup{
+local present, toggleterm = pcall(require, "toggleterm")
+
+if not present then
+  return
+end
+
+toggleterm.setup{
     open_mappings = true,
     terminal_mappings = true,
     insert_mappings = true,

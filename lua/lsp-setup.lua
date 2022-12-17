@@ -1,4 +1,8 @@
-local lspconfig = require('lspconfig')
+local present, lspconfig = pcall(require, "lspconfig")
+
+if not present then
+  return
+end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 

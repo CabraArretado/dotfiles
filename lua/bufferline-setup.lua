@@ -1,8 +1,14 @@
 vim.opt.termguicolors = true
 
-require('bufferline').setup {
+local present, bufferline = pcall(require, "bufferline")
+
+if not present then
+  return
+end
+
+bufferline.setup {
     options = {
-        style = padded_slant,
+        style = 'padded_slant',
         mode = 'buffers',
         indicator = {
             icon = '|',
