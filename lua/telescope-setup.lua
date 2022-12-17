@@ -84,5 +84,16 @@ telescope.setup {
     git_stash = {
       initial_mode = 'normal',
     },
+    buffers = {
+      initial_mode = 'normal',
+      mappings = {
+	n = {
+	  ["x"] = require("telescope.actions").delete_buffer,
+	},
+      },
+    },
   }
 }
+
+-- TODO: 
+-- + To edit telescope.buffers options to accept closing buffers

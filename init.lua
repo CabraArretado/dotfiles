@@ -90,6 +90,7 @@ map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>')
 map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>')
 map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
+-- Just for documentation porpuses
 -- map('n', 'gd', function() return require('telescope.builtin').lsp_definitions(require('telescope.themes').get_cursor()) end)
 map('n', 'gq', '<cmd>Telescope quickfix<cr>')
 map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>')
