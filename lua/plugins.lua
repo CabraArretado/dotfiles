@@ -15,6 +15,7 @@ local packer_bootstrap = ensure_packer()
 --------------------------------
 --- Plugins list to install ----
 --------------------------------
+
 return require('packer').startup(
     function(use)
 	-- Vim plugins
@@ -46,6 +47,8 @@ return require('packer').startup(
 	use { 'L3MON4D3/LuaSnip' }
 	use { 'akinsho/toggleterm.nvim' }
 	use { 'phaazon/hop.nvim' }
+	use { 'williamboman/mason.nvim' }
+	use { 'williamboman/mason-lspconfig.nvim' }
 ----------------------------------
 ----------------------------------
 ----------------------------------

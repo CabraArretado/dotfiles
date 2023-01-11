@@ -1,5 +1,4 @@
 local present, lspconfig = pcall(require, "lspconfig")
-
 if not present then
   return
 end
@@ -10,14 +9,9 @@ local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+
+------------- Mappings ----------------
 local map = require('helpers').map
-local opts = { noremap = true, silent = true }
-map('n', '<space>e', vim.diagnostic.open_float, opts)
-map('n', '[d', vim.diagnostic.goto_prev, opts)
-map('n', ']d', vim.diagnostic.goto_next, opts)
-map('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -41,6 +35,17 @@ local on_attach = function(client, bufnr)
 	map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	map('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+        map('n', '<F6>', vim.diagnostic.hide, bufopts)
+	map('n', '<space>e', vim.diagnostic.open_float, bufopts)
+	map('n', '[d', vim.diagnostic.goto_prev, bufopts)
+	map('n', ']d', vim.diagnostic.goto_next, bufopts)
+	map('n', '<space>q', vim.diagnostic.setloclist, bufopts)
+	map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>', bufopts)
+	map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>', bufopts)
+	map('n', 'gr', '<cmd>Telescope lsp_references<cr>', bufopts)
+	map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', bufopts)
+	map('n', 'gq', '<cmd>Telescope quickfix<cr>', bufopts)
+	map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', bufopts)
 end
 
 if vim.fn.executable('lua-language-server') == 1 then
@@ -81,9 +86,18 @@ if vim.fn.executable('lua-language-server') == 1 then
 end
 -- List all servers here --
 -- tables of string with the server's names
-local servers = { 'pyright', 'tsserver' }
 
-for _, lsp in pairs(servers) do
+local to_install = { 'pylsp', 'tsserver' }
+
+require("mason").setup({})
+
+require("mason-lspconfig").setup({
+    ensure_installed = to_install,
+    automatic_installation = false,
+})
+
+
+for _, lsp in pairs(to_install) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
 		flags = lsp_flags,
