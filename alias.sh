@@ -47,7 +47,6 @@ alias c="clear"
 # Vim related
 alias vi="nvim"
 alias pvi="pipenv run nvim"
-alias confighandler="~/dotfiles/handler.sh"
 
 # Docker
 alias dc="docker-compose"
@@ -108,6 +107,11 @@ docker_terminal()
 {
     docker exec -it $1 bash
 }
+
+# Set Python Breakpoint() to IPDB if available
+if [ -x "$(command -v ipdb)" ]; then
+    export PYTHONBREAKPOINT="ipdb.set_trace"
+fi
 
 # fzf stuff
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
