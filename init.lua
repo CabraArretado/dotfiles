@@ -1,6 +1,7 @@
 local cmd = vim.cmd --- to execute string as vim command
 local g = vim.g      -- to access global variables
 local opt = vim.opt  -- to set options
+local api = vim.api
 
 require('plugins')
 require('telescope-setup')
@@ -12,7 +13,6 @@ require('lsp-setup')
 require('cmp-setup')
 require('term-setup')
 require('diversos-setup')
-
 
 opt.number = true
 opt.cursorline = true
@@ -96,3 +96,7 @@ map( 't', ';q', '<cmd>ToggleTerm size=40<cr>')
 -- Hop
 map({'n','v'}, 'S', '<cmd>HopLineStart<cr>')
 map({'n','v'}, 's', '<cmd>HopChar2<cr>')
+
+
+-- Highlight on yank
+api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_yank({timeout=300}) end})

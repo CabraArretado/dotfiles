@@ -1,6 +1,6 @@
 local present, lspconfig = pcall(require, "lspconfig")
 if not present then
-  return
+	return
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -23,9 +23,9 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	map('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	map('n', 'gdd', vim.lsp.buf.definition, bufopts)
-	map('n', '<leader>kh', vim.lsp.buf.hover, bufopts)
+	map('n', '<leader>k', vim.lsp.buf.hover, bufopts)
 	map('n', 'gi', vim.lsp.buf.implementation, bufopts)
-	map('n', '<leader>k', vim.lsp.buf.signature_help, bufopts)
+	map('n', '<leader>kh', vim.lsp.buf.signature_help, bufopts)
 	map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
 	map('n', '<space>wl', function()
@@ -34,8 +34,10 @@ local on_attach = function(client, bufnr)
 	map('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 	map('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	map('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-	map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-        map('n', '<F6>', vim.diagnostic.hide, bufopts)
+	map('n', '<space>f', function()
+		vim.lsp.buf.format({ async = true })
+	end, bufopts)
+	map('n', '<F6>', vim.diagnostic.hide, bufopts)
 	map('n', '<space>e', vim.diagnostic.open_float, bufopts)
 	map('n', '[d', vim.diagnostic.goto_prev, bufopts)
 	map('n', ']d', vim.diagnostic.goto_next, bufopts)
@@ -92,8 +94,8 @@ local to_install = { 'pylsp', 'tsserver' }
 require("mason").setup({})
 
 require("mason-lspconfig").setup({
-    ensure_installed = to_install,
-    automatic_installation = false,
+	ensure_installed = to_install,
+	automatic_installation = false,
 })
 
 
