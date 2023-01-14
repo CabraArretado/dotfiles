@@ -35,8 +35,8 @@ g.mapleader = ','
 g.maplocalleader = '\\'
 
 -- Theme
-local theme = 'onedark'
-cmd(string.format([[colorscheme %s]], theme))
+local theme = [[onedark]]
+cmd.colorscheme(theme)
 
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
