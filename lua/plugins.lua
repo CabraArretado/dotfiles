@@ -39,7 +39,10 @@ return require('packer').startup(
 	use { 'kyazdani42/nvim-web-devicons' }
 	use { 'kyazdani42/nvim-tree.lua' }
 	use { 'lukas-reineke/indent-blankline.nvim' }
-	use { 'hrsh7th/nvim-cmp' }
+	use { 'hrsh7th/nvim-cmp',
+	requires={
+
+	}}
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
 	use { 'hrsh7th/cmp-path' }
@@ -50,7 +53,7 @@ return require('packer').startup(
 	use { 'phaazon/hop.nvim' }
 	use { 'williamboman/mason.nvim' }
 	use { 'williamboman/mason-lspconfig.nvim' }
-----------------------------------
+
 ----------------------------------
 ----------------------------------
 	-- Automatically set up your configuration after cloning packer.nvim

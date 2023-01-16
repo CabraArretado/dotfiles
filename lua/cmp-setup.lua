@@ -1,10 +1,13 @@
-local present, cmp = pcall(require, 'cmp')
-
-if not present then
+local c_present, cmp = pcall(require, 'cmp')
+if not c_present then
   return
 end
 
-local luasnip = require 'luasnip'
+local l_present, luasnip = pcall(require, 'luasnip')
+if not l_present then
+  return
+end
+
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
