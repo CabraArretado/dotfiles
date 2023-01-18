@@ -3,11 +3,6 @@ if not present then
 	return
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local lsp_flags = {
-	debounce_text_changes = 150,
-}
 
 ------------- LSP Mappings ----------------
 
@@ -101,6 +96,11 @@ require("mason-lspconfig").setup({
 	automatic_installation = false,
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lsp_flags = {
+	debounce_text_changes = 150,
+}
 
 for _, lsp in pairs(to_install) do
 	lspconfig[lsp].setup {

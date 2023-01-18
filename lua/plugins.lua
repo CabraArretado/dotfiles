@@ -17,7 +17,7 @@ return require('packer').startup(
 		use { 'wbthomason/packer.nvim' }
 		use { 'morhetz/gruvbox' }
 		use { 'joshdick/onedark.vim' }
-		use { 'airblade/vim-gitgutter' }
+		use { 'lewis6991/gitsigns.nvim' }
 		use { 'tpope/vim-fugitive' }
 		use { 'tpope/vim-commentary' }
 		use { 'junegunn/fzf' }
