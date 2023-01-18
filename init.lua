@@ -48,6 +48,7 @@ api.nvim_create_autocmd("FileType", {callback=function()
   vim.bo[0].expandtab = true
   vim.bo[0].shiftwidth = 2
 end})
+
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 

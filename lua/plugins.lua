@@ -30,10 +30,10 @@ return require('packer').startup(
         'j-hui/fidget.nvim',
       }, }
     use { 'nvim-treesitter/nvim-treesitter' }
-    use { -- Additional text objects via treesitter
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      after = 'nvim-treesitter',
-    }
+    -- use { -- Additional text objects via treesitter
+    --   'nvim-treesitter/nvim-treesitter-textobjects',
+    --   after = 'nvim-treesitter',
+    -- }
     use { 'nvim-lua/plenary.nvim' }
     use { 'nvim-telescope/telescope.nvim' }
     use { 'nvim-telescope/telescope-fzf-native.nvim' }
