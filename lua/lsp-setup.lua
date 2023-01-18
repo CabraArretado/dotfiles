@@ -54,6 +54,15 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local to_install = { 'pylsp', 'tsserver' }
+
+require("mason").setup({})
+
+require("mason-lspconfig").setup({
+  ensure_installed = to_install,
+  automatic_installation = false,
+})
+
 if vim.fn.executable('lua-language-server') == 1 then
   lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
@@ -90,17 +99,30 @@ if vim.fn.executable('lua-language-server') == 1 then
     },
   }
 end
--- List all servers here --
--- tables of string with the server's names
 
-local to_install = { 'pylsp', 'tsserver' }
-
-require("mason").setup({})
-
-require("mason-lspconfig").setup({
-  ensure_installed = to_install,
-  automatic_installation = false,
-})
+lspconfig['pylsp'].pylsp.setup {
+  enabled = true,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        flake8 = {
+          enabled = false,
+          ignore = {},
+          indentSize = 4,
+          maxLineLength = 100,
+        },
+        pylint = {
+          enabled = true,
+          maxLineLength = 100,
+        },
+        pyright = { enabled = false },
+        isort = { enabled = true },
+      }
+    }
+  },
+}
 
 for _, lsp in pairs(to_install) do
   lspconfig[lsp].setup {
