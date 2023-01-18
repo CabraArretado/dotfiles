@@ -6,11 +6,10 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lsp_flags = {
-	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
 
-------------- Mappings ----------------
+------------- LSP Mappings ----------------
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -25,35 +24,33 @@ local on_attach = function(client, bufnr)
 		end
 		vim.keymap.set(modes, lhs, rhs, options)
 	end
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
+
+    local telescope = require('telescope.builtin')
 	lsp_map('n', 'gD', vim.lsp.buf.declaration, '[G]o to [D]eclaration')
 	lsp_map('n', 'gd', vim.lsp.buf.definition, '[G]o to [d]efinition')
 	lsp_map('n', '<leader>k', vim.lsp.buf.hover, 'Hover over')
 	lsp_map('n', 'gi', vim.lsp.buf.implementation, '[G]o to [I]mplementation')
 	lsp_map('n', '<space>kh', vim.lsp.buf.signature_help, '[S]ignature [H]elp')
-	lsp_map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, '')
-	lsp_map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder)
+	lsp_map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, 'Add Worspace Folder')
+	lsp_map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, 'Remove Worspace Folder')
 	lsp_map('n', '<space>wl', function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end)
-	lsp_map('n', '<space>D', vim.lsp.buf.type_definition)
-	lsp_map('n', '<space>rn', vim.lsp.buf.rename)
+	end, 'Print Workspace Folder List')
+	lsp_map('n', '<space>D', vim.lsp.buf.type_definition, 'Type Definition')
+	lsp_map('n', '<space>rs', vim.lsp.buf.rename, '[R]ename Symbol')
 	lsp_map('n', '<space>ca', vim.lsp.buf.code_action)
 	lsp_map('n', '<space>f', function()
 		vim.lsp.buf.format({ async = true })
 	end)
-	lsp_map('n', '<F6>', vim.diagnostic.hide)
-	lsp_map('n', '<space>e', vim.diagnostic.open_float)
-	lsp_map('n', '[d', vim.diagnostic.goto_prev)
-	lsp_map('n', ']d', vim.diagnostic.goto_next)
-	lsp_map('n', '<space>q', vim.diagnostic.setloclist)
-	lsp_map('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>')
-	lsp_map('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>')
-	lsp_map('n', 'gr', '<cmd>Telescope lsp_references<cr>')
-	lsp_map('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
-	lsp_map('n', 'gq', '<cmd>Telescope quickfix<cr>')
-	lsp_map('n', '<leader>ls', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>')
+	lsp_map('n', '<F6>', vim.diagnostic.hide, 'Hide LSP suggestions')
+	lsp_map('n', '<space>e', vim.diagnostic.open_float, 'Show Diagnostic')
+	lsp_map('n', '[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
+	lsp_map('n', ']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+	lsp_map('n', '<space>q', vim.diagnostic.setloclist, 'Diagnostic List')
+	lsp_map('n', 'gr', telescope.lsp_references, 'Go to [R]eferences')
+	lsp_map('n', 'gq', telescope.quickfix, '[Q]uickfix')
+	lsp_map('n', '<space>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+	lsp_map('n', '<space>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
 end
 
 if vim.fn.executable('lua-language-server') == 1 then
