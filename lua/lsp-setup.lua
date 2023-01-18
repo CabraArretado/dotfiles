@@ -100,7 +100,7 @@ if vim.fn.executable('lua-language-server') == 1 then
   }
 end
 
-lspconfig['pylsp'].pylsp.setup {
+lspconfig['pylsp'].setup {
   enabled = true,
   on_attach = on_attach,
   capabilities = capabilities,
