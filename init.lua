@@ -1,7 +1,7 @@
 local cmd = vim.cmd --- to execute string as vim command
 local g = vim.g      -- to access global variables
 local opt = vim.opt  -- to set options
-local api = vim.api
+local api = vim.api  -- access the VIM Lua API
 
 require('plugins')
 require('telescope-setup')
@@ -46,5 +46,5 @@ api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_ya
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 
---  Require after the opts
+--  Require Keymaps after the opts
 require('keymaps')
