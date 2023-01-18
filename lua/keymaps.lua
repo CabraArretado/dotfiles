@@ -71,8 +71,3 @@ map('t', ';q', '<cmd>ToggleTerm size=40<cr>')
 -- Hop
 map({ 'n', 'v' }, 'S', '<cmd>HopLineStart<cr>')
 map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>')
-
-map('n', 'lua', function()
-  vim.bo[0].expandtab = true
-  vim.bo[0].shiftwidth = 2
-end)
