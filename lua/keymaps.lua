@@ -1,14 +1,14 @@
 local map = function(modes, lhs, rhs, opts)
-	-- Parameters:
-	-- -- mode: string or table of strings with the modes
-	-- -- lhs: keys to bind
-	-- -- rhs: existing command or keybidding
-	-- -- opts: self descriptive
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(modes, lhs, rhs, options)
+  -- Parameters:
+  -- -- mode: string or table of strings with the modes
+  -- -- lhs: keys to bind
+  -- -- rhs: existing command or keybidding
+  -- -- opts: self descriptive
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(modes, lhs, rhs, options)
 end
 
 --General
@@ -46,10 +46,10 @@ map('n', '<leader>c', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>r', '<cmd>Telescope registers<cr>')
 map('n', '<leader>/', function()
-	telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-		-- winblend = 10,
-		previewer = false,
-	})
+  telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    -- winblend = 10,
+    previewer = false,
+  })
 end, { desc = '[/] Fuzzy find in the current buffer]' })
 map('n', '<leader>j', '<cmd>Telescope jumplist<cr>')
 map('n', '<leader>gd', '<cmd>Telescope git_status<cr>')
@@ -71,3 +71,8 @@ map('t', ';q', '<cmd>ToggleTerm size=40<cr>')
 -- Hop
 map({ 'n', 'v' }, 'S', '<cmd>HopLineStart<cr>')
 map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>')
+
+map('n', 'lua', function()
+  vim.bo[0].expandtab = true
+  vim.bo[0].shiftwidth = 2
+end)
