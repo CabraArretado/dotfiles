@@ -100,6 +100,7 @@ if vim.fn.executable('lua-language-server') == 1 then
   }
 end
 
+local max_line_python = 120
 lspconfig['pylsp'].setup {
   enabled = true,
   on_attach = on_attach,
@@ -107,15 +108,21 @@ lspconfig['pylsp'].setup {
   settings = {
     pylsp = {
       plugins = {
+                pycodestyle = {
+                    enabled = false,
+                    ignore = {},
+                    maxLineLength = max_line_python,
+                },
         flake8 = {
           enabled = false,
-          ignore = {},
+          ignore = {'E501'},
           indentSize = 4,
-          maxLineLength = 100,
+          maxLineLength = max_line_python,
         },
         pylint = {
           enabled = true,
-          maxLineLength = 100,
+          ignore = {'E501'},
+          maxLineLength = max_line_python,
         },
         pyright = { enabled = false },
         isort = { enabled = true },
