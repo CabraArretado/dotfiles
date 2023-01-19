@@ -101,27 +101,31 @@ if vim.fn.executable('lua-language-server') == 1 then
 end
 
 local max_line_python = 120
+
+local python_ignore_diagnostic = table.concat({ "E203", "W503", "E501" }, ',')
+
 lspconfig['pylsp'].setup {
   enabled = true,
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
+    -- VIDE: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
     pylsp = {
       plugins = {
-                pycodestyle = {
-                    enabled = false,
-                    ignore = {},
-                    maxLineLength = max_line_python,
-                },
-        flake8 = {
+        pycodestyle = {
           enabled = false,
-          ignore = {'E501'},
+          ignore = python_ignore_diagnostic,
+          maxLineLength = max_line_python,
+        },
+        flake8 = {
+          enabled = true,
+          ignore = python_ignore_diagnostic,
           indentSize = 4,
           maxLineLength = max_line_python,
         },
         pylint = {
-          enabled = true,
-          ignore = {'E501'},
+          enabled = false,
+          ignore = python_ignore_diagnostic,
           maxLineLength = max_line_python,
         },
         pyright = { enabled = false },
@@ -131,7 +135,8 @@ lspconfig['pylsp'].setup {
   },
 }
 
-for _, lsp in pairs(to_install) do
+local default_lsp = { 'tsserver' }
+for _, lsp in pairs(default_lsp) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     flags = lsp_flags,
