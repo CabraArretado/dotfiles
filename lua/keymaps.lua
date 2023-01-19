@@ -39,10 +39,10 @@ map({ 'n', 'v' }, '<leader>t', '<cmd>NvimTreeToggle<cr>', { desc = 'NvimTree tog
 -- Telescope
 -- TODO: To change that to require('telescope.builtin')
 local telescope = require('telescope.builtin')
-map({ 'n', 'v' }, '<leader>s', '<cmd>Telescope treesitter<cr>')
+map({ 'n', 'v' }, '<leader>ss', '<cmd>Telescope treesitter<cr>', {desc = '[S]earch [S]ymbols'})
 map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>c', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>sw', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>r', '<cmd>Telescope registers<cr>')
 map('n', '<leader>/', function()

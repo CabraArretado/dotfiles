@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   lsp_map('n', '<space>ca', vim.lsp.buf.code_action)
   lsp_map('n', '<space>f', function()
     vim.lsp.buf.format({ async = true })
-  end)
+  end, '[F]ormat doc')
   lsp_map('n', '<F6>', vim.diagnostic.hide, 'Hide LSP suggestions')
   lsp_map('n', '<space>e', vim.diagnostic.open_float, 'Show Diagnostic')
   lsp_map('n', '[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
@@ -102,7 +102,7 @@ end
 
 local max_line_python = 120
 
-local python_ignore_diagnostic = table.concat({ "E203", "W503", "E501" }, ',')
+local python_ignore_diagnostic = { "E203", "W503", "E501" }
 
 lspconfig['pylsp'].setup {
   enabled = true,
@@ -118,7 +118,7 @@ lspconfig['pylsp'].setup {
           maxLineLength = max_line_python,
         },
         flake8 = {
-          enabled = true,
+          enabled = false,
           ignore = python_ignore_diagnostic,
           indentSize = 4,
           maxLineLength = max_line_python,

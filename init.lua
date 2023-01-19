@@ -43,6 +43,8 @@ cmd.colorscheme(theme)
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_yank({timeout=300}) end})
 
+api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_yank({timeout=300}) end})
+
 -- Lua formatting
 api.nvim_create_autocmd("FileType", {callback=function()
   vim.bo[0].expandtab = true
