@@ -54,6 +54,15 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local to_install = { 'pylsp', 'tsserver' }
+
+require("mason").setup({})
+
+require("mason-lspconfig").setup({
+  ensure_installed = to_install,
+  automatic_installation = false,
+})
+
 if vim.fn.executable('lua-language-server') == 1 then
   lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
@@ -90,19 +99,44 @@ if vim.fn.executable('lua-language-server') == 1 then
     },
   }
 end
--- List all servers here --
--- tables of string with the server's names
 
-local to_install = { 'pylsp', 'tsserver' }
+local max_line_python = 120
 
-require("mason").setup({})
+local python_ignore_diagnostic = table.concat({ "E203", "W503", "E501" }, ',')
 
-require("mason-lspconfig").setup({
-  ensure_installed = to_install,
-  automatic_installation = false,
-})
+lspconfig['pylsp'].setup {
+  enabled = true,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    -- VIDE: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          enabled = false,
+          ignore = python_ignore_diagnostic,
+          maxLineLength = max_line_python,
+        },
+        flake8 = {
+          enabled = true,
+          ignore = python_ignore_diagnostic,
+          indentSize = 4,
+          maxLineLength = max_line_python,
+        },
+        pylint = {
+          enabled = false,
+          ignore = python_ignore_diagnostic,
+          maxLineLength = max_line_python,
+        },
+        pyright = { enabled = false },
+        isort = { enabled = true },
+      }
+    }
+  },
+}
 
-for _, lsp in pairs(to_install) do
+local default_lsp = { 'tsserver' }
+for _, lsp in pairs(default_lsp) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     flags = lsp_flags,
