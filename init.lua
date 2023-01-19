@@ -1,7 +1,7 @@
 local cmd = vim.cmd --- to execute string as vim command
-local g = vim.g      -- to access global variables
-local opt = vim.opt  -- to set options
-local api = vim.api  -- access the VIM Lua API
+local g = vim.g -- to access global variables
+local opt = vim.opt -- to set options
+local api = vim.api -- access the VIM Lua API
 
 require('plugins')
 require('telescope-setup')
@@ -21,7 +21,7 @@ opt.termguicolors = true
 opt.cursorline = true
 opt.visualbell = true
 opt.smartcase = true
-opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 opt.clipboard = 'unnamed'
 opt.mouse = 'a'
 opt.laststatus = 3
@@ -41,15 +41,14 @@ cmd.colorscheme(theme)
 ------ Autocommands ---------
 
 -- Highlight on yank
-api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_yank({timeout=300}) end})
-
-api.nvim_create_autocmd("TextYankPost", {callback=function() vim.highlight.on_yank({timeout=300}) end})
+api.nvim_create_autocmd("TextYankPost", { callback = function() vim.highlight.on_yank({ timeout = 300 }) end })
 
 -- Lua formatting
-api.nvim_create_autocmd("FileType", {callback=function()
-  vim.bo[0].expandtab = true
-  vim.bo[0].shiftwidth = 2
-end})
+api.nvim_create_autocmd("FileType", { pattern = '*.lua',
+  callback = function()
+    vim.bo[0].expandtab = true
+    vim.bo[0].shiftwidth = 2
+  end })
 
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])

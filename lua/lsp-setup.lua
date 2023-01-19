@@ -46,6 +46,13 @@ local on_attach = function(client, bufnr)
   lsp_map('n', 'gq', telescope.quickfix, '[Q]uickfix')
   lsp_map('n', '<space>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
   lsp_map('n', '<space>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
+
+  -- Python Formating
+-- vim.api.nvim_create_autocmd("FileType", { pattern = '*.py',
+--   callback = function()
+--     lsp_map({'n', 'v'}, '<space>f', '<esc><command>! black %')
+--   end })
+
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
