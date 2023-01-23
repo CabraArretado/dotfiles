@@ -50,6 +50,10 @@ api.nvim_create_autocmd("FileType", { pattern = '*.lua',
     vim.bo[0].shiftwidth = 2
   end })
 
+-- TS to work with Terraform files
+api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, { pattern = '*.tf', command=[[set filetype=hcl]]})
+----
+
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 
