@@ -38,12 +38,13 @@ map({ 'n', 'v' }, '<leader>n', '<cmd>NvimTreeFindFileToggle<cr>', { desc = 'Nvim
 map({ 'n', 'v' }, '<leader>t', '<cmd>NvimTreeToggle<cr>', { desc = 'NvimTree toggle' })
 
 -- Telescope
--- TODO: To change that to require('telescope.builtin')
 local telescope = require('telescope.builtin')
 map({ 'n', 'v' }, '<leader>ss', telescope.treesitter, { desc = '[S]earch [S]ymbols' })
 map({ 'n', 'v' }, '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 map({ 'n', 'v' }, '<leader>sw', telescope.live_grep, { desc = '[S]earch in [W]orkspace' })
-map({ 'n', 'v' }, '<leader>sb', telescope.buffers, { desc = '[B]uffer list' })
+map({ 'n', 'v' }, '<leader>sc', telescope.grep_string, { desc = '[S]earch String Under [C]ursor' })
+map({ 'n', 'v' }, '<leader>sb', telescope.buffers, { desc = '[S]earch [B]uffers' })
+map({ 'n', 'v' }, '<leader>sg', telescope.git_files, { desc = '[S]earch [G]it Files' })
 map({ 'n', 'v' }, '<leader>sr', telescope.registers, { desc = '[S]earch [R]egisters' })
 map({ 'n', 'v' }, '<leader>sj', telescope.jumplist, { desc = '[S]earch [J]umplist' })
 map({ 'n', 'v' }, '<leader>/', function()
