@@ -15,8 +15,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(
   function(use)
     use { 'wbthomason/packer.nvim' }
-    use { 'morhetz/gruvbox' }
-    use { 'joshdick/onedark.vim' }
+    use { 'navarasu/onedark.nvim' }
     use { 'lewis6991/gitsigns.nvim' }
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-commentary' }

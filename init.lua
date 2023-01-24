@@ -35,6 +35,7 @@ g.mapleader = ','
 g.maplocalleader = '\\'
 
 -- Theme
+require 'onedark'.setup({style = 'deep'})
 local theme = [[onedark]]
 cmd.colorscheme(theme)
 
