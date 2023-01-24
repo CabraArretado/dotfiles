@@ -17,9 +17,8 @@ map({ 'n', 'v' }, "'", ';') -- Repeat last motion foward
 map({ 'n', 'v' }, '"', ',') -- Repeat last motion backward
 map('i', 'jk', '<Esc>')
 map('i', 'JK', '<Esc>')
-map('n', '<C-s>', '<cmd>w<cr>', {desc = 'Salve Buffer'})
-map('n', '<C-c>', '<cmd>checktime<cr>', {desc = 'Refresh Buffers'})
--- map({ 'n', 'v' }, 'q', '%')
+map('n', '<C-s>', '<cmd>w<cr>', { desc = 'Salve Buffer' })
+map('n', '<C-c>', '<cmd>checktime<cr>', { desc = 'Refresh Buffers' })
 map({ 'n', 'v' }, ',', '<Esc>,')
 
 -- Moving
@@ -56,11 +55,12 @@ end, { desc = '[/] Fuzzy find in the current buffer]' })
 map({ 'n', 'v' }, '<leader>gd', telescope.git_status, { desc = '[G]it [D]iff' })
 map({ 'n', 'v' }, '<leader>gc', telescope.git_commits, { desc = '[G]it [C]ommits' })
 map({ 'n', 'v' }, '<leader>gbc', telescope.git_bcommits, { desc = '[G]it [B]ranch [C]ommits' })
-map({ 'n', 'v' }, '<leader>gb', telescope.git_branches, { desc = '[G]it [B]ranches' })
+map({ 'n', 'v' }, '<leader>gbr', telescope.git_branches, { desc = '[G]it [B]ranches' })
 map({ 'n', 'v' }, '<leader>gs', telescope.git_stash, { desc = '[G]it [S]tash' })
 map({ 'n', 'v' }, '<leader>km', telescope.keymaps, { desc = '[K]ey[m]aps' })
 map({ 'n', 'v' }, '<leader>h', telescope.help_tags, { desc = '[H]elp Neovim' })
 map({ 'n', 'v' }, '<leader>o', telescope.oldfiles, { desc = 'Last Opened Files. [O]ld files' })
+map({ 'n', 'v' }, '<leader>gbl', '<cmd>Gitsigns blame_line<cr>', { desc = '[G]it [B]lame [L]ine' })
 
 
 -- Just for documentation
@@ -71,5 +71,5 @@ map({ 'n', 't', 'v' }, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
 map('t', ':q', '<cmd>ToggleTerm size=40<cr>')
 
 -- Hop
-map({ 'n', 'v' }, 'S', '<cmd>HopLine<cr>', {desc = 'Jump to line'})
-map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>', {desc = 'Jump to 2 characters'})
+map({ 'n', 'v' }, 'S', '<cmd>HopLine<cr>', { desc = 'Jump to line' })
+map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>', { desc = 'Jump to 2 characters' })
