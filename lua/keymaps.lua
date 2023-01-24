@@ -1,25 +1,26 @@
 local map = function(modes, lhs, rhs, opts)
-  -- Parameters:
-  -- -- mode: string or table of strings with the modes
-  -- -- lhs: keys to bind
-  -- -- rhs: existing command or keybidding
-  -- -- opts: self descriptive
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(modes, lhs, rhs, options)
+	-- Parameters:
+	-- -- mode: string or table of strings with the modes
+	-- -- lhs: keys to bind
+	-- -- rhs: existing command or keybidding
+	-- -- opts: self descriptive
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(modes, lhs, rhs, options)
 end
 
 --General
-map({ 'n', 'v' }, ';', ':')
+map({ 'n', 'v', 't' }, ';', ':')
 map({ 'n', 'v' }, "'", ';') -- Repeat last motion foward
 map({ 'n', 'v' }, '"', ',') -- Repeat last motion backward
 map('i', 'jk', '<Esc>')
 map('i', 'JK', '<Esc>')
-map('n', '<C-s>', '<cmd>w<cr>')
-map('n', '<C-c>', '<cmd>checktime<cr>')
-map({ 'n', 'v' }, 'q', '%')
+map('n', '<C-s>', '<cmd>w<cr>', {desc = 'Salve Buffer'})
+map('n', '<C-c>', '<cmd>checktime<cr>', {desc = 'Refresh Buffers'})
+-- map({ 'n', 'v' }, 'q', '%')
+map({ 'n', 'v' }, ',', '<Esc>,')
 
 -- Moving
 map({ 'n', 'v' }, 'J', '<C-f>')
@@ -39,26 +40,26 @@ map({ 'n', 'v' }, '<leader>t', '<cmd>NvimTreeToggle<cr>', { desc = 'NvimTree tog
 -- Telescope
 -- TODO: To change that to require('telescope.builtin')
 local telescope = require('telescope.builtin')
-map({ 'n', 'v' }, '<leader>ss', '<cmd>Telescope treesitter<cr>', {desc = '[S]earch [S]ymbols'})
-map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>sw', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
-map('n', '<leader>r', '<cmd>Telescope registers<cr>')
-map('n', '<leader>/', function()
-  telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    -- winblend = 10,
-    previewer = false,
-  })
+map({ 'n', 'v' }, '<leader>ss', telescope.treesitter, { desc = '[S]earch [S]ymbols' })
+map({ 'n', 'v' }, '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
+map({ 'n', 'v' }, '<leader>sw', telescope.live_grep, { desc = '[S]earch in [W]orkspace' })
+map({ 'n', 'v' }, '<leader>sb', telescope.buffers, { desc = '[B]uffer list' })
+map({ 'n', 'v' }, '<leader>sr', telescope.registers, { desc = '[S]earch [R]egisters' })
+map({ 'n', 'v' }, '<leader>sj', telescope.jumplist, { desc = '[S]earch [J]umplist' })
+map({ 'n', 'v' }, '<leader>/', function()
+	telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+		-- winblend = 10,
+		previewer = false
+	})
 end, { desc = '[/] Fuzzy find in the current buffer]' })
-map('n', '<leader>j', '<cmd>Telescope jumplist<cr>')
-map('n', '<leader>gd', '<cmd>Telescope git_status<cr>')
-map('n', '<leader>gc', '<cmd>Telescope git_commits<cr>')
-map('n', '<leader>gbc', '<cmd>Telescope git_bcommits<cr>')
-map('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
-map('n', '<leader>gs', '<cmd>Telescope git_stash<cr>')
-map('n', '<leader>km', '<cmd>Telescope keymaps<cr>')
-map('n', '<leader>h', '<cmd>Telescope help_tags<cr>')
+map({ 'n', 'v' }, '<leader>gd', telescope.git_status, { desc = '[G]it [D]iff' })
+map({ 'n', 'v' }, '<leader>gc', telescope.git_commits, { desc = '[G]it [C]ommits' })
+map({ 'n', 'v' }, '<leader>gbc', telescope.git_bcommits, { desc = '[G]it [B]ranch [C]ommits' })
+map({ 'n', 'v' }, '<leader>gb', telescope.git_branches, { desc = '[G]it [B]ranches' })
+map({ 'n', 'v' }, '<leader>gs', telescope.git_stash, { desc = '[G]it [S]tash' })
+map({ 'n', 'v' }, '<leader>km', telescope.keymaps, { desc = '[K]ey[m]aps' })
+map({ 'n', 'v' }, '<leader>h', telescope.help_tags, { desc = '[H]elp Neovim' })
+map({ 'n', 'v' }, '<leader>o', telescope.oldfiles, { desc = 'Last Opened Files. [O]ld files' })
 
 
 -- Just for documentation
@@ -66,8 +67,8 @@ map('n', '<leader>h', '<cmd>Telescope help_tags<cr>')
 
 -- Terminal
 map({ 'n', 't', 'v' }, '<leader>t', '<cmd>ToggleTerm size=40<cr>')
-map('t', ';q', '<cmd>ToggleTerm size=40<cr>')
+map('t', ':q', '<cmd>ToggleTerm size=40<cr>')
 
 -- Hop
-map({ 'n', 'v' }, 'S', '<cmd>HopLineStart<cr>')
-map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>')
+map({ 'n', 'v' }, 'S', '<cmd>HopLine<cr>', {desc = 'Jump to line'})
+map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>', {desc = 'Jump to 2 characters'})
