@@ -17,5 +17,5 @@ api.nvim_create_autocmd("FileType", {
 
 -- TS to work with Terraform files
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" },
-	{ group = "createdByMe", pattern = '*.tf', command = [[set filetype=hcl]] })
+	{ group = "CreatedByMe", pattern = '*.tf', command = [[set filetype=hcl]] })
 ----
