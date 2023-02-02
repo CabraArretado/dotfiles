@@ -39,21 +39,6 @@ require 'onedark'.setup({style = 'deep'})
 local theme = [[onedark]]
 cmd.colorscheme(theme)
 
------- Autocommands ---------
-
--- Highlight on yank
-api.nvim_create_autocmd("TextYankPost", { callback = function() vim.highlight.on_yank({ timeout = 300 }) end })
-
--- Lua formatting
-api.nvim_create_autocmd("FileType", { pattern = '*.lua',
-  callback = function()
-    vim.bo[0].expandtab = true
-    vim.bo[0].shiftwidth = 2
-  end })
-
--- TS to work with Terraform files
-api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, { pattern = '*.tf', command=[[set filetype=hcl]]})
-----
 
 -- tmux nav
 cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
