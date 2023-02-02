@@ -1,6 +1,6 @@
 local api = vim.api -- access the VIM Lua API
 
-api.nvim_create_augroup("CreatedByMe")
+api.nvim_create_augroup("CreatedByMe", { clear = false })
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost",
 	{ group = "CreatedByMe", callback = function() vim.highlight.on_yank({ timeout = 300 }) end })
