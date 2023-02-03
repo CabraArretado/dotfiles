@@ -51,6 +51,9 @@ alias pvi="pipenv run nvim"
 # Docker
 alias dc="docker-compose"
 
+# Lazygit
+alias lg="lazygit"
+
 # Python related
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
 alias ipy="ipython"
