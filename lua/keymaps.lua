@@ -1,18 +1,19 @@
 local map = function(modes, lhs, rhs, opts)
-	-- Parameters:
-	-- -- mode: string or table of strings with the modes
-	-- -- lhs: keys to bind
-	-- -- rhs: existing command or keybidding
-	-- -- opts: self descriptive
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(modes, lhs, rhs, options)
+  -- Parameters:
+  -- -- mode: string or table of strings with the modes
+  -- -- lhs: keys to bind
+  -- -- rhs: existing command or keybidding
+  -- -- opts: self descriptive
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(modes, lhs, rhs, options)
 end
 
 --General
 map({ 'n', 'v', 't' }, ';', ':')
+map({ 'n', 'v', 't' }, '&', '<cmd>noh<cr>')
 map({ 'n', 'v' }, "'", ';') -- Repeat last motion foward
 map({ 'n', 'v' }, '"', ',') -- Repeat last motion backward
 map('i', 'jk', '<Esc>')
@@ -47,10 +48,10 @@ map({ 'n', 'v' }, '<leader>sg', telescope.git_files, { desc = '[S]earch [G]it Fi
 map({ 'n', 'v' }, '<leader>sr', telescope.registers, { desc = '[S]earch [R]egisters' })
 map({ 'n', 'v' }, '<leader>sj', telescope.jumplist, { desc = '[S]earch [J]umplist' })
 map({ 'n', 'v' }, '<leader>/', function()
-	telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-		-- winblend = 10,
-		previewer = false
-	})
+  telescope.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    -- winblend = 10,
+    previewer = false
+  })
 end, { desc = '[/] Fuzzy find in the current buffer]' })
 map({ 'n', 'v' }, '<leader>gd', telescope.git_status, { desc = '[G]it [D]iff' })
 map({ 'n', 'v' }, '<leader>gc', telescope.git_commits, { desc = '[G]it [C]ommits' })
