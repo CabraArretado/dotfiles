@@ -45,3 +45,4 @@ cmd([[let g:tmux_navigator_disable_when_zoomed = 1]])
 
 --  Require Keymaps after the opts
 require('keymaps')
+require('autocmds')
