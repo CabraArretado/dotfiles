@@ -74,3 +74,5 @@ map('t', ':q', '<cmd>ToggleTerm size=40<cr>')
 -- Hop
 map({ 'n', 'v' }, 'S', '<cmd>HopLine<cr>', { desc = 'Jump to line' })
 map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>', { desc = 'Jump to 2 characters' })
+
+map({ 'n', 'v' }, '<F3>', '<cmd>!code %<cr>', { desc = 'Open in VSCode' })
