@@ -14,6 +14,7 @@ end
 --General
 map({ 'n', 'v', 't' }, ';', ':')
 map({ 'n', 'v', 't' }, '&', '<cmd>noh<cr>')
+map({ 'n', 'v' }, 'R', '"', { desc = 'Register Registration'}) --  Register registration
 map({ 'n', 'v' }, "'", ';') -- Repeat last motion foward
 map({ 'n', 'v' }, '"', ',') -- Repeat last motion backward
 map('i', 'jk', '<Esc>')
@@ -75,4 +76,6 @@ map('t', ':q', '<cmd>ToggleTerm size=40<cr>')
 map({ 'n', 'v' }, 'S', '<cmd>HopLine<cr>', { desc = 'Jump to line' })
 map({ 'n', 'v' }, 's', '<cmd>HopChar2<cr>', { desc = 'Jump to 2 characters' })
 
-map({ 'n', 'v' }, '<F3>', '<cmd>!code %<cr>', { desc = 'Open in VSCode' })
+map({ 'n', 'v' }, '<F3>', '<cmd>!code . && code %<cr>', { desc = 'Open repo and file in VSCode' })
+map({ 'n', 'v' }, '<F4>', '<cmd>!code %<cr>', { desc = 'Open file in VSCode' })
+
