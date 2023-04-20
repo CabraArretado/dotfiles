@@ -21,3 +21,4 @@ require('gitsigns').setup({
     changedelete = { text = '~~' },
   },
 })
+
